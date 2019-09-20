@@ -1,9 +1,20 @@
+# == Schema Information
+#
+# Table name: resume_technologies
+#
+#  id            :bigint           not null, primary key
+#  resume_id     :string
+#  technology_id :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  resume_id: 1
-  technology_id: 1
+  resume_id: MyString
+  technology_id: MyString
 
 two:
-  resume_id: 1
-  technology_id: 1
+  resume_id: MyString
+  technology_id: MyString

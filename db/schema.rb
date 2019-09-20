@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_143014) do
+ActiveRecord::Schema.define(version: 2019_09_20_223541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,24 @@ ActiveRecord::Schema.define(version: 2019_09_20_143014) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "resume_projects", force: :cascade do |t|
+    t.string "resume_id", null: false
+    t.string "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_resume_projects_on_project_id"
+    t.index ["resume_id"], name: "index_resume_projects_on_resume_id"
+  end
+
+  create_table "resume_technologies", force: :cascade do |t|
+    t.string "resume_id"
+    t.string "technology_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_resume_technologies_on_resume_id"
+    t.index ["technology_id"], name: "index_resume_technologies_on_technology_id"
   end
 
   create_table "resumes", force: :cascade do |t|
