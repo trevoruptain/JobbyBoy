@@ -6,8 +6,5 @@ class CreateExperienceBullets < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-
-    add_index :experience_bullets, :experience_id
-    add_index :experience_bullets, :bullet_id
   end
 end

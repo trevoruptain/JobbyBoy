@@ -8,6 +8,5 @@ class CreateProjectBullets < ActiveRecord::Migration[5.2]
     end
 
     add_index :project_bullets, :project_id
-    add_index :project_bullets, :bullet_id
   end
 end

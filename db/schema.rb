@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_230118) do
+ActiveRecord::Schema.define(version: 2019_09_20_143014) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "experience_bullets", force: :cascade do |t|
     t.integer "experience_id", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["experience_id"], name: "index_experience_bullets_on_experience_id"
-    t.index [nil], name: "index_experience_bullets_on_bullet_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -36,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_09_19_230118) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_project_bullets_on_project_id"
-    t.index [nil], name: "index_project_bullets_on_bullet_id"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -1,20 +1,7 @@
-# == Schema Information
-#
-# Table name: experience_bullets
-#
-#  id            :integer          not null, primary key
-#  experience_id :integer          not null
-#  body          :text             not null
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#
-
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   experience_id: 1
-  bullet_id: 1
 
 two:
   experience_id: 1
-  bullet_id: 1
