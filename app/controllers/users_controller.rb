@@ -1,22 +1,43 @@
 class UsersController < ApplicationController
-  def new
-  end
+  before_action :require_login
+  skip_before_action :create
 
   def create
-  end
+    @user = User.create!(user_params)
 
-  def edit
+    if @user.save
+      render :show
+    else
+      render json: @user.errors.full_messages, status: 400
+    end
   end
 
   def update
-  end
+    @user = current_user
 
-  def index
+    if @user
+      if @user.update(user_params)
+        render :show
+      else
+        render json: @user.errors.full_messages, status: 400
+      end
+    else
+      render json: ["That user does not exist"], status: 404
+    end
   end
 
   def show
+    @user = current_user
+    render: show
   end
 
   def destroy
+    @user = current_user
+    render json: ["User successfully deleted"], status: 200
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :phone, :address, :objective)
   end
 end

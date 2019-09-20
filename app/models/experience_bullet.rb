@@ -10,5 +10,7 @@
 #
 
 class ExperienceBullet < ApplicationRecord
+    validates :experience_id, :body, presence: true
+
     belongs_to :experience
 end

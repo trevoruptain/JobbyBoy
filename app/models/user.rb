@@ -15,7 +15,8 @@
 class User < ApplicationRecord
     validates :name, :email, :phone, :address, :objective, presence: true
 
-    has_many :resumes
-    has_many :experiences
+    has_many :resumes, dependent: :destroy
+    has_many :projects, dependent: :destroy
+    has_many :experiences, dependent: :destroy
     has_many :technologies, through: :user_technologies
 end

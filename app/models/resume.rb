@@ -12,10 +12,10 @@
 #
 
 class Resume < ApplicationRecord
-    validates :title, :primary_color, :secondary_color, presence: true
+    validates :title, :primary_color, :secondary_color, :user_id, presence: true
 
     belongs_to :user
     
     has_many :technologies, through: :resume_technologies
-    has_many :experiences, through: :resume_experiences
+    has_many :projects, through: :resume_projects
 end

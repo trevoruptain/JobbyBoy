@@ -10,4 +10,8 @@
 #
 
 class ResumeTechnology < ApplicationRecord
+    validates :resume_id, :technology_id, presence: true
+
+    belongs_to :resume
+    belongs_to :technology
 end

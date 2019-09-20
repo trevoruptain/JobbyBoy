@@ -10,5 +10,7 @@
 #
 
 class ProjectBullet < ApplicationRecord
+    validates :project_id, :body, presence: true
+    
     belongs_to :project 
 end

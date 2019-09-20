@@ -11,6 +11,8 @@
 #
 
 class UserTechnology < ApplicationRecord
+    validates :user_id, :technology_id, :name, presence: true
+
     belongs_to :user 
     belongs_to :technology
 end

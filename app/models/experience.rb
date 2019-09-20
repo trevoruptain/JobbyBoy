@@ -12,9 +12,9 @@
 #
 
 class Experience < ApplicationRecord
-    validates :start_date, :end_date, :company_name, presence: true
+    validates :start_date, :end_date, :company_name, :user_id, presence: true
 
     belongs_to :user
     
-    has_many :experience_bullets
+    has_many :experience_bullets, dependent: :destroy
 end

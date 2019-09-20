@@ -10,9 +10,9 @@
 #
 
 class Project < ApplicationRecord
-    validates :title, presence: true
+    validates :title, :user_id, presence: true
 
     belongs_to :user
 
-    has_many :project_bullets
+    has_many :project_bullets, dependent: :destroy
 end

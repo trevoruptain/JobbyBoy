@@ -10,4 +10,8 @@
 #
 
 class ResumeProject < ApplicationRecord
+    validates :resume_id, :project_id, presence: true
+
+    belongs_to :resume
+    belongs_to :project
 end
