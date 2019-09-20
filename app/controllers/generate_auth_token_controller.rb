@@ -1,0 +1,2 @@
+class GenerateAuthTokenController < ApplicationController
+end

@@ -1,4 +1,4 @@
-class ResumesController < ApplicationController
+class TechnologiesController < ApplicationController
   def new
   end
 

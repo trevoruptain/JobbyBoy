@@ -1,11 +1,5 @@
-class ResumesController < ApplicationController
-  def new
-  end
-
+class ExperienceBulletsController < ApplicationController
   def create
-  end
-
-  def edit
   end
 
   def update
