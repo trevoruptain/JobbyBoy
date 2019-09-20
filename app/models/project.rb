@@ -2,7 +2,7 @@
 #
 # Table name: projects
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  title      :string
 #  user_id    :integer          not null
 #  created_at :datetime         not null
@@ -12,7 +12,7 @@
 class Project < ApplicationRecord
     validates :title, presence: true
 
-    belongs_to :resume
+    belongs_to :user
 
     has_many :project_bullets
 end

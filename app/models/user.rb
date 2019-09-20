@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  name       :string           not null
 #  email      :string           not null
 #  phone      :string           not null
@@ -16,5 +16,6 @@ class User < ApplicationRecord
     validates :name, :email, :phone, :address, :objective, presence: true
 
     has_many :resumes
+    has_many :experiences
     has_many :technologies, through: :user_technologies
 end

@@ -2,9 +2,9 @@
 #
 # Table name: experiences
 #
-#  id           :integer          not null, primary key
-#  start        :string           not null
-#  end          :string           not null
+#  id           :bigint           not null, primary key
+#  start_date   :string           not null
+#  end_date     :string           not null
 #  company_name :string           not null
 #  user_id      :string           not null
 #  created_at   :datetime         not null

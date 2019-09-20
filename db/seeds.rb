@@ -17,14 +17,14 @@ Experience.delete_all
 ExperienceBullet.delete_all
 UserTechnology.delete_all
 
-ActiveRecord::Base.connection.execute("TRUNCATE users")
-ActiveRecord::Base.connection.execute("TRUNCATE resumes")
-ActiveRecord::Base.connection.execute("TRUNCATE technologies")
-ActiveRecord::Base.connection.execute("TRUNCATE projects")
-ActiveRecord::Base.connection.execute("TRUNCATE project_bullets")
-ActiveRecord::Base.connection.execute("TRUNCATE experiences")
-ActiveRecord::Base.connection.execute("TRUNCATE experience_bullets")
-ActiveRecord::Base.connection.execute("TRUNCATE user_technologies")
+User.reset_pk_sequence
+Resume.reset_pk_sequence
+Technology.reset_pk_sequence
+Project.reset_pk_sequence
+ProjectBullet.reset_pk_sequence
+Experience.reset_pk_sequence
+ExperienceBullet.reset_pk_sequence
+UserTechnology.reset_pk_sequence
 
 2.times do
     User.create!(
@@ -53,7 +53,7 @@ end
     )
 end
 
-20.times do    
+20.times do
     Project.create!(
         title: Faker::Military.marines_rank,
         user_id: rand(2) + 1
@@ -73,7 +73,7 @@ end
     Experience.create!(
         start_date: Faker::Date.forward(days: rand_day),
         end_date: Faker::Date.forward(days: rand_day + rand(10000)),
-        company_name: Faker::TvShows::Seinfeld.quote,
+        company_name: Faker::TvShows::Seinfeld.business,
         user_id: rand(2) + 1
     )
 end

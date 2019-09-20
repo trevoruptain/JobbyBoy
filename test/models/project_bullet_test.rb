@@ -2,7 +2,7 @@
 #
 # Table name: project_bullets
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  project_id :integer          not null
 #  body       :text             not null
 #  created_at :datetime         not null

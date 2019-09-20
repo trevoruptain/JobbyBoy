@@ -2,7 +2,7 @@
 #
 # Table name: user_technologies
 #
-#  id            :integer          not null, primary key
+#  id            :bigint           not null, primary key
 #  user_id       :integer
 #  technology_id :string
 #  name          :string

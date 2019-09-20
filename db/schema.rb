@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_09_20_143014) do
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.string "start", null: false
-    t.string "end", null: false
+    t.string "start_date", null: false
+    t.string "end_date", null: false
     t.string "company_name", null: false
     t.string "user_id", null: false
     t.datetime "created_at", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_143014) do
   end
 
   create_table "technologies", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

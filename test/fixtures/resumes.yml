@@ -2,7 +2,7 @@
 #
 # Table name: resumes
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  title           :string           not null
 #  primary_color   :string           not null
 #  secondary_color :string           not null
