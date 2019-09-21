@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :edit, :index] do
     resources :resumes, except: [:new, :edit, :index]
-    resources :technologies, except: [:new, :edit, :index]
+    resources :technologies, only: [:create, :index, :show]
     resources :generate_auth_token, only: [:index]
 
     resources :experiences, except: [:new, :edit, :index] do 

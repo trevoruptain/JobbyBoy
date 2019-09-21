@@ -1,2 +1,5 @@
-<h1>ProjectBullets#index</h1>
-<p>Find me in app/views/project_bullets/index.html.erb</p>
+json.project_bullets do
+    @project_bullets.each do |project_bullet|
+        json.partial! "api/project_bulletss/project_bullets", project_bullet: project_bullet
+    end
+end

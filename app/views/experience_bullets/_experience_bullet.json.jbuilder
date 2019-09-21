@@ -1,0 +1,1 @@
+json.extract! experience_bullet, :id, :experience_id, :body

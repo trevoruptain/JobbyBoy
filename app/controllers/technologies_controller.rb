@@ -1,22 +1,33 @@
 class TechnologiesController < ApplicationController
-  def new
-  end
+  before_action :require_login
 
   def create
-  end
+    @technology = Technology.new(technology_params)
 
-  def edit
-  end
+    if @technology.save!
+      UserTechnology.create!(
+        user_id: current_user.id
+        technology_id: @technology.id
+      )
 
-  def update
+      render :show 
+    else
+      render json: @technology.errors.full_messages
+    end
   end
 
   def index
+    @technologies = Technology.all
+    render :index
   end
 
   def show
+    @technology = Technology.find(params[:id])
+    render :show
   end
 
-  def destroy
+  private
+  def technology_params
+    params.require(:technology).permit(:name)
   end
 end

@@ -19,4 +19,6 @@ class User < ApplicationRecord
     has_many :projects, dependent: :destroy
     has_many :experiences, dependent: :destroy
     has_many :technologies, through: :user_technologies
+    has_many :experience_bullets, through: :experiences
+    has_many :project_bullets, through: :projects
 end

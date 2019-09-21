@@ -1,2 +1,5 @@
-<h1>Technologies#index</h1>
-<p>Find me in app/views/technologies/index.html.erb</p>
+json.technologies do
+    @technologies.each do |technology|
+        json.partial! "api/technologies/technology", technology: technology
+    end
+end
