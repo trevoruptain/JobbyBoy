@@ -1,0 +1,1 @@
+json.extract! resume, :id, :title, :primary_color, :secondary_color, :user_id

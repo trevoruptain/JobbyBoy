@@ -1,2 +1,5 @@
-<h1>Resumes#index</h1>
-<p>Find me in app/views/resumes/index.html.erb</p>
+json.resumes do
+    @resumes.each do |resume|
+        json.partial! "api/resumes/resume", resume: resume
+    end
+end

@@ -4,7 +4,7 @@ class CreateExperiences < ActiveRecord::Migration[5.2]
       t.string :start_date, null: false
       t.string :end_date, null: false
       t.string :company_name, null: false
-      t.string :user_id, null: false
+      t.integer :user_id, null: false
 
       t.timestamps
     end

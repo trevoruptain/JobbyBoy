@@ -87,8 +87,21 @@ end
 
 60.times do
     UserTechnology.create!(
-        name: Faker::TvShows::BojackHorseman.character,
         user_id: rand(2) + 1,
         technology_id: rand(100) + 1
+    )
+end
+
+60.times do
+    ResumeProject.create!(
+        resume_id: rand(10) + 1,
+        project_id: rand(20) + 1
+    )
+end
+
+60.times do
+    ResumeExperience.create!(
+        resume_id: rand(10) + 1,
+        experience_id: rand(20) + 1
     )
 end

@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   skip_before_action :create
 
   def create
-    @user = User.create!(user_params)
+    @user = User.new(user_params)
 
-    if @user.save
+    if @user.save!
       render :show
     else
       render json: @user.errors.full_messages, status: 400
@@ -28,12 +28,17 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    render: show
+    render :show
   end
 
   def destroy
     @user = current_user
-    render json: ["User successfully deleted"], status: 200
+
+    if @user.destroy!
+      render json: ["User successfully deleted"], status: 200
+    else
+      render json: @user.errors.full_messages
+    end
   end
 
   private

@@ -1,8 +1,8 @@
 class CreateResumeProjects < ActiveRecord::Migration[5.2]
   def change
     create_table :resume_projects do |t|
-      t.string :resume_id, null: false
-      t.string :project_id, null: false
+      t.integer :resume_id, null: false
+      t.integer :project_id, null: false
 
       t.timestamps
     end
