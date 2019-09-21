@@ -41,8 +41,8 @@ end
 
     Resume.create!(
         title: Faker::Cannabis.strain,
-        primary_color: Faker::Color.color_name,
-        secondary_color: Faker::Color.color_name,
+        primary_color: Faker::Color.hex_color,
+        secondary_color: Faker::Color.hex_color,
         user_id: user_id
     )
 end

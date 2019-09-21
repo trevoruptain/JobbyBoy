@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root to: 'root#index'
 
+  # omniauth routes
+  get ‘auth/:provider/callback’, to: ‘sessions#create’
+  get ‘auth/failure’, to: redirect(‘/’)
+
   resources :users, except: [:new, :edit, :index] do
-    resources :resumes, except: [:new, :edit, :index]
+    resources :resumes, except: [:new, :edit]
     resources :technologies, only: [:create, :index, :show]
     resources :generate_auth_token, only: [:index]
 

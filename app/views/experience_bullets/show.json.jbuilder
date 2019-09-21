@@ -1,1 +1,1 @@
-json.partial! "api/experience_bullets/experience_bullet", experience_bullet: @experience_bullet
+json.partial! "experience_bullets/experience_bullet", experience_bullet: @experience_bullet

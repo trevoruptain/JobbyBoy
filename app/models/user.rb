@@ -14,6 +14,10 @@
 
 class User < ApplicationRecord
     validates :name, :email, :phone, :address, :objective, presence: true
+    validates :email, uniqueness: true
+    validates :password, length: { minimum: 6 }, allow_nil: true
+
+    after_initialize :ensure_session_token
 
     has_many :resumes, dependent: :destroy
     has_many :projects, dependent: :destroy
@@ -21,4 +25,18 @@ class User < ApplicationRecord
     has_many :technologies, through: :user_technologies
     has_many :experience_bullets, through: :experiences
     has_many :project_bullets, through: :projects
+
+    # Create a new user only if it doesn't exist
+    def self.from_omniauth(auth)
+        where(email: auth.info.email).first_or_initialize do |user|
+            user.name = auth.info.name
+            user.email = auth.info.email
+        end
+    end
+
+    def reset_session_token!
+        self.generate_session_token
+        self.save!
+        self.session_token
+    end
 end

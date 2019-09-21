@@ -1,1 +1,1 @@
-json.partial! "api/project_bullets/project_bullet", project_bullet: @project_bullet
+json.partial! "project_bullets/project_bullet", project_bullet: @project_bullet

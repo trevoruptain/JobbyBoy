@@ -1,5 +1,5 @@
 class ExperienceBulletsController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
 
   def create
     @experience_bullet = ExperienceBullet.new(experience_bullet_params)

@@ -1,14 +1,14 @@
 class TechnologiesController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
+  skip_before_action :verify_authenticity_token
 
   def create
     @technology = Technology.new(technology_params)
-
     if @technology.save!
-      UserTechnology.create!(
-        user_id: current_user.id
-        technology_id: @technology.id
-      )
+      # user_technology = UserTechnology.new({
+      #   user_id: current_user.id
+      #   technology_id: @technology.id
+      # })
 
       render :show 
     else
@@ -17,6 +17,7 @@ class TechnologiesController < ApplicationController
   end
 
   def index
+    debugger
     @technologies = Technology.all
     render :index
   end
