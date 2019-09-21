@@ -2,7 +2,12 @@
   "name": "jobby-boy",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
     "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
@@ -18,7 +23,10 @@
     "node": "10.13.0",
     "npm": "6.4.1"
   },
-  "scripts": {},
+  "scripts": {
+    "webpack": "webpack --mode=development --watch",
+    "postinstall": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trevoruptain/Jobby-Boy.git"
