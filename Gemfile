@@ -30,6 +30,8 @@ gem 'omniauth-google-oauth2'
 
 gem 'activerecord-reset-pk-sequence'
 
+gem 'faker'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -54,7 +56,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
-  gem 'faker'
 end
 
 group :test do
