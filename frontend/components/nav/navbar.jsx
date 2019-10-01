@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 const userLinks = () => (
     <ul>
         <li><Link to="/resumes">Resumes</Link></li>
+        <li><Link to="/generate">Generate</Link></li>
         <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/api">API</Link></li>
         <li><Link to="/extension" className="button">Extension</Link></li>
@@ -25,7 +26,7 @@ class NavBar extends React.Component {
 
         return (
             <nav>
-                <img src="http://localhost:3000/jobby-boy-logo-new.png" alt="Jobby Boy Logo" />
+                <h1>{'{JobbyBoy}'}</h1>
                 {links}
             </nav>
         )
