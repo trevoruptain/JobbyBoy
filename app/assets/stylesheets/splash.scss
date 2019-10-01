@@ -299,7 +299,6 @@
 }
 
 #footer {
-    height: 300px;
     background-color: cornflowerblue;
     border-top: dashed 2px #F3F3F3;
     background-image: linear-gradient(to bottom, rgba(100, 149, 237, 0.9), rgba(100, 149, 237, 0.9)),
@@ -310,7 +309,7 @@
     display: flex;
     justify-content: space-evenly;
     box-sizing: border-box;
-    padding-top: 50px;
+    padding: 50px;
 
     div {
         width: 200px;

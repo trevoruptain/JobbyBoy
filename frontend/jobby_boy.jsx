@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import logger from 'redux-logger';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     
     if (window.currentUser) {
-        const preloadedState = { session: { currentUser: true } };
-        store = configureStore(preloadedState);
+        store = configureStore();
         window.store = store;
         delete window.currentUser;
     } else {
