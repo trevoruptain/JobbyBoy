@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
+import Footer from '../nav/footer';
+
 import jobDescriptions from '../../data/job-description-samples';
 import topTenSkills from '../../util/sort_util';
 
@@ -58,15 +60,15 @@ class Splash extends React.Component {
                 </section>
                 <section id="example">
                     <h3>It's free real estate!</h3>
-                    <h4>Choose a sample job description to get a taste 👅 for how JobbyBoy works</h4>
+                    <h4>Choose a sample job description to get a taste 👅 of what JobbyBoy can do</h4>
                     <div id="resume">
                         <div className='top-bar'>
-                            <h5 style={{ color: this.state.color }}>John Doe</h5>
-                            <h6>Project Manager</h6>
+                            <h5 style={{ color: this.state.color }}>Luke Skywalker</h5>
+                            <h6>Jedi Knight</h6>
                             <ul>
                                 <li>123.456.7890</li>
-                                <li>johndoe@johndoe.com</li>
-                                <li>123 Main St, Anytown, USA, 99999</li>
+                                <li>lukeyboy@skywalker.com</li>
+                                <li>123 Wookie St, Sabertown, Tatooine, 99999</li>
                             </ul>
                         </div>
                         <div className='container'>
@@ -119,9 +121,7 @@ class Splash extends React.Component {
 
                     <div className='clear'></div>
                 </section>
-                <section id='footer'>
-
-                </section>
+                <Footer />
             </div>
         )
     }

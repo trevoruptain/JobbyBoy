@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 const userLinks = () => (
     <ul>
         <li><Link to="/resumes">Resumes</Link></li>
-        <li><Link to="/generate">Generate</Link></li>
         <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/api">API</Link></li>
         <li><Link to="/extension" className="button">Extension</Link></li>
@@ -26,7 +25,7 @@ class NavBar extends React.Component {
 
         return (
             <nav>
-                <h1>{'{JobbyBoy}'}</h1>
+                <h1>{'J⚙️bbyB👦🏻y'}</h1>
                 {links}
             </nav>
         )
