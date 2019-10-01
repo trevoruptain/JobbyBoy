@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
+import wobble from '../../util/wobble_util';
+
 const userLinks = () => (
     <ul>
         <li><Link to="/resumes">Resumes</Link></li>
@@ -20,12 +22,29 @@ class NavBar extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        wobble();
+    }
+
     render() {
         const links = this.props.currentUser ? userLinks() : sessionLinks();
 
         return (
             <nav>
-                <h1>{'J⚙️bbyB👦🏻y'}</h1>
+                <h1>
+                    <a id="logo" href="/#">
+                        <ul>
+                            <li>J</li>
+                            <li>⚙️</li>
+                            <li>b</li>
+                            <li>b</li>
+                            <li>y</li>
+                            <li>B</li>
+                            <li>👦🏻</li>
+                            <li>y</li>
+                        </ul>
+                    </a>
+                </h1>
                 {links}
             </nav>
         )

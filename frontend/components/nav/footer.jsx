@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
             <div>
                 <h4>About</h4>
-                <p>This striking, inspired website is designed, built, and operated by <a href="https://trevoruptain.com">Trevor Uptain</a>🧔🏻</p>
+                <p>This striking, inspired website is designed, built, and operated by <a href="https://trevoruptain.com">Trevor Uptain.</a>🧔🏻You're welcome.</p>
             </div>
         </section>
     );
