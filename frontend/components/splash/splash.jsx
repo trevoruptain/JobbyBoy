@@ -48,8 +48,8 @@ class Splash extends React.Component {
         return (
             <div id="main">
                 <section id="splash">
-                    <h1>Building a custom resume is tedious.</h1>
-                    <h2>JobbyBoy makes it hella 🔥 easy 👏.</h2>
+                    <h1>Building a custom resume is tedious</h1>
+                    <h2>JobbyBoy makes it hella 🔥 easy 👏</h2>
                 </section>
                 <section id="making-a-point">
                     <div className="point"><img src="http://localhost:3000/resume-icon.png" /><p>Design a modular resume with your skills, experience, and education 🎓.</p></div>
@@ -58,7 +58,7 @@ class Splash extends React.Component {
                 </section>
                 <section id="example">
                     <h3>It's free real estate!</h3>
-                    <h4>Choose a sample job description to get a taste 👅 for how JobbyBoy works.</h4>
+                    <h4>Choose a sample job description to get a taste 👅 for how JobbyBoy works</h4>
                     <div id="resume">
                         <div className='top-bar'>
                             <h5 style={{ color: this.state.color }}>John Doe</h5>
