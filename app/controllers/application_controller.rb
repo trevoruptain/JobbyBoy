@@ -13,15 +13,15 @@ class ApplicationController < ActionController::Base
     end
 
     def login!(user)
-        user.reset_session_token!
-        session[:session_token] = user.session_token
+        access_token = request.env["omniauth.auth"]
+        user.google_refresh_token = access_token.credentials.refresh_token
         @current_user = user
     end
 
     def logout
         access_token = request.env["omniauth.auth"]
         access_token.credentials.refresh_token
-        user.google_refresh_token
+        user.google_refresh_token = nil
         request.env["omniauth.auth"] = nil
         @current_user = nil
     end

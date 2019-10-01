@@ -33,10 +33,4 @@ class User < ApplicationRecord
             user.email = auth.info.email
         end
     end
-
-    def reset_session_token!
-        self.generate_session_token
-        self.save!
-        self.session_token
-    end
 end
