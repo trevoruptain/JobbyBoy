@@ -42,7 +42,7 @@ class NavBar extends React.Component {
                             <li>b</li>
                             <li>y</li>
                             <li>B</li>
-                            <li>👦🏻</li>
+                            <li>🧔🏻</li>
                             <li>y</li>
                         </ul>
                     </Link>

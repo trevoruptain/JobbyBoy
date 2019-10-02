@@ -1,0 +1,71 @@
+#main {
+    #resume-create {
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 50px;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: dashed 2px #030303;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: aliceblue;
+
+            input, textarea {
+                height: 35px;
+                width: 400px;
+                margin: 5px 0;
+                font-family: 'Quicksand', sans-serif;
+                padding: 5px 10px;
+                font-size: 12px;
+                box-sizing: border-box;
+                border-radius: 5px;
+                border: solid 1px cornflowerblue;
+            }
+
+            textarea {
+                height: 100px;
+            }
+
+            input[type=submit] {
+                background-color: cornflowerblue;
+                color: #030303;
+                cursor: pointer;
+                transition: all 0.5s;
+            }
+
+            input[type=submit]:hover {
+                background-color: #030303;
+                border: solid 1px #F3F3F3;
+                color: #F3F3F3;
+                transition: all 0.5s;
+            }
+        }
+
+        h4 {
+            font-size: 30px;
+            margin: 0 0 15px 0;
+        }
+    }
+
+    #resume-index {
+        background-color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .resume {
+            width: 500px;
+            box-sizing: border-box;
+            border: dashed 2px #030303;
+            padding: 20px 40px;
+            border-radius: 10px;
+            text-align: left;
+            margin: 30px 0;
+        }
+    }
+}

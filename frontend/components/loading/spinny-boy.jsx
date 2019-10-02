@@ -14,7 +14,7 @@ class SpinnyBoy extends React.Component {
 
     render() {
         return (
-            <div id="spinner"><div id='boy-container'>👦🏻</div></div>
+            <div id="spinner"><div id='boy-container'>🧔🏻</div></div>
         )
     }
 }

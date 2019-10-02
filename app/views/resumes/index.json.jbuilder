@@ -1,5 +1,7 @@
 json.resumes do
     @resumes.each do |resume|
-        json.partial! "resumes/resume", resume: resume
+        json.set! resume.id do
+            json.partial! "resumes/resume", resume: resume
+        end
     end
 end

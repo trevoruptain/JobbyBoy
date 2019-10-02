@@ -58,7 +58,7 @@ class Splash extends React.Component {
                 </section>
                 <section id="example">
                     <h3>It's free real estate!</h3>
-                    <h4>Choose a sample job description to get a taste 👅 of what JobbyBoy can do</h4>
+                    <h4>Choose a sample job description to get a taste 👅 of JobbyBoy</h4>
                     <div id="resume">
                         <div className='top-bar'>
                             <h5 style={{ color: this.state.color }}>Luke Skywalker</h5>

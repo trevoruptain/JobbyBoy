@@ -6,7 +6,7 @@ const NotesReducer = (state = {}, action) => {
     
     switch (action.type) {
         case RECEIVE_RESUMES:
-            return Object.assign({}, state, action.resumes);
+            return Object.assign({}, state, action.payload.resumes);
         default:
             return state;
     }
