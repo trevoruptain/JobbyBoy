@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import Footer from '../nav/footer';
-
 import jobDescriptions from '../../data/job-description-samples';
 import topTenSkills from '../../util/sort_util';
 
@@ -121,7 +119,6 @@ class Splash extends React.Component {
 
                     <div className='clear'></div>
                 </section>
-                <Footer />
             </div>
         )
     }

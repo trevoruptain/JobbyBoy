@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 
 import SpinnyBoy from './loading/spinny-boy';
 import NavBar from './nav/navbar';
+import Footer from './nav/footer';
 import Splash from './splash';
 import Resumes from './resumes';
 
@@ -19,7 +20,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        sleep(2000).then(() => {
+        sleep(500).then(() => {
             this.props.finishLoading();
         })
     }
@@ -49,6 +50,7 @@ class App extends React.Component {
                     <Route exact path="/" component={ Splash } />
                     <Route path="/resumes" component={ Resumes } />
                 </Switch>
+                <Footer />
             </div>
         );
     } 

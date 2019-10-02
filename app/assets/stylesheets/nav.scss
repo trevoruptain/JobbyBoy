@@ -14,7 +14,6 @@ nav {
 
     h1 {
         font-size: 40px;
-        color: #F3F3F3;
         margin-left: 30px;
         font-weight: 100;
 
@@ -39,48 +38,56 @@ nav {
         list-style-type: none;
         margin: 0 20px;
     }
+
+    img {
+        margin-left: 20px;
+        height: 40px;
+    }
+
+    #login {
+        width: 193px;
+        height: 43px;
+        background-image: url('http://localhost:3000/btn_google_signin_dark_normal_web.png');
+        background-repeat: no-repeat;
+    }
+
+    #login:active {
+        background-image: url('http://localhost:3000/btn_google_signin_dark_pressed_web.png')
+    }
+
+    #login:focus {
+        background-image: url('http://localhost:3000/btn_google_signin_dark_focus_web.png')
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .button {
+        border: dashed 1px $main-color;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bolder;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .button:hover { 
+        text-decoration: none;
+        background-color: $main-color;
+        color: #F3F3f3;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .white {
+        color: #F3F3F3;
+    }
+
+    .black {
+        color: #030303;
+    }
 }
 
-nav img {
-    margin-left: 20px;
-    height: 40px;
-}
-
-nav #login {
-    width: 193px;
-    height: 43px;
-    background-image: url('http://localhost:3000/btn_google_signin_dark_normal_web.png');
-    background-repeat: no-repeat;
-}
-
-nav #login:active {
-    background-image: url('http://localhost:3000/btn_google_signin_dark_pressed_web.png')
-}
-
-nav #login:focus {
-    background-image: url('http://localhost:3000/btn_google_signin_dark_focus_web.png')
-}
-
-nav a {
-    text-decoration: none;
-    color: #F3F3F3;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-nav .button {
-    border: dashed 1px $main-color;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bolder;
-    transition: all 0.5s ease-in-out;
-}
-
-nav .button:hover { 
-    text-decoration: none;
-    background-color: $main-color;
-    color: #F3F3f3;
-    transition: all 0.5s ease-in-out;
-}
