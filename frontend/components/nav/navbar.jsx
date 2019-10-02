@@ -32,7 +32,7 @@ class NavBar extends React.Component {
         return (
             <nav>
                 <h1>
-                    <a id="logo" href="/#">
+                    <Link to="/" id="logo">
                         <ul>
                             <li>J</li>
                             <li>⚙️</li>
@@ -43,7 +43,7 @@ class NavBar extends React.Component {
                             <li>👦🏻</li>
                             <li>y</li>
                         </ul>
-                    </a>
+                    </Link>
                 </h1>
                 {links}
             </nav>

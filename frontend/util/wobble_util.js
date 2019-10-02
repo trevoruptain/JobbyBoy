@@ -30,7 +30,7 @@ const toggleWobble = (timestamp) => {
         timestamp = 0;
 
         children.forEach(child => {
-            const newPos = randomNumber(-50, 50);
+            const newPos = randomNumber(-30, 30);
             const dX = randomNumber(-2, 2);
             const dY = randomNumber(-4, 4);
             child.setAttribute('style', `transform: rotate(${newPos}deg) translate(${dX}px, ${dY}px);`);

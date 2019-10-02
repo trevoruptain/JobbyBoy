@@ -1,12 +1,14 @@
-const LOADING = "LOADING";
+import { START_LOADING, FINISH_LOADING } from '../actions/loading-actions';
 
-const UIReducer = (state = { loading: true }, action) => {
+const UIReducer = (state = { loading: false }, action) => {
     Object.freeze(state);
-    let newState = Object.assign({}, state, { loading: false });
+    let newState = Object.assign({}, state, { loading: true });
 
     switch (action.type) {
-        case LOADING:
-            Object.assign({}, state, { loading: true });
+        case START_LOADING:
+            return Object.assign({}, state, { loading: true });
+        case FINISH_LOADING:
+            return Object.assign({}, state, { loading: false });
         default:
             return newState;
     }
