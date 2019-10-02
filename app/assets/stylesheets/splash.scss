@@ -147,7 +147,7 @@
         transform: translateX(-15%);
         background-color: rgba(250, 250, 250, 1);
         border-radius: 10px;
-        border: dashed 2px #000;
+        border: dashed 1px #000;
         min-height: 300px;
         margin: 45px;
 
@@ -160,12 +160,12 @@
             left: -100px;
             top: 75px;
             width: 100px;
-            border: dashed 2px #000;
+            border: dashed 1px #000;
             background-color: rgba(250, 250, 250, 0.5);
             border-radius: 10px 0 0 10px;
             z-index: 1;
             box-sizing: border-box;
-            margin: -2px 0;
+            margin: -1px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -295,42 +295,5 @@
             color: transparent;
             // text-shadow: 0 0 5px goldenrod;
         }
-    }
-}
-
-#footer {
-    background-color: cornflowerblue;
-    border-top: dashed 2px #F3F3F3;
-    background-image: linear-gradient(to bottom, rgba(100, 149, 237, 0.9), rgba(100, 149, 237, 0.9)),
-                      url('http://localhost:3000/footer-bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    color: #F3F3F3;
-    display: flex;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    padding: 50px;
-
-    div {
-        width: 200px;
-    }
-
-    ul {
-        padding: 0;
-
-        li {
-            list-style-type: none;
-            margin: 0;
-        }
-    }
-
-    a, a:visited, a:active {
-        text-decoration: none;
-        color: #F3F3F3;
-        font-weight: 100;
-    }
-
-    a:hover {
-        text-decoration: underline;
     }
 }

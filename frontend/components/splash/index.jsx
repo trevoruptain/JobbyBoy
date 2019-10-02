@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+
+import { finishLoading } from '../../actions/loading-actions';
 
 import jobDescriptions from '../../data/job-description-samples';
 import topTenSkills from '../../util/sort_util';
@@ -19,6 +23,11 @@ class Splash extends React.Component {
 
         this.updateCurrent = this.updateCurrent.bind(this);
         this.updateColor = this.updateColor.bind(this);
+    }
+
+
+    componentDidMount() {
+        this.props.finishLoading();
     }
 
     updateCurrent(e) {
@@ -124,4 +133,10 @@ class Splash extends React.Component {
     }
 }
 
-export default Splash;
+const mapStateToProps = (state, ownProps) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+    finishLoading: () => dispatch(finishLoading())
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Splash));

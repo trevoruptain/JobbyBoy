@@ -10,19 +10,11 @@ import Footer from './nav/footer';
 import Splash from './splash';
 import Resumes from './resumes';
 
-import { startLoading, finishLoading } from '../actions/loading-actions';
-
-import sleep from '../util/sleep_util';
+import { startLoading } from '../actions/loading-actions';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
-        sleep(500).then(() => {
-            this.props.finishLoading();
-        })
     }
 
     shouldComponentUpdate(nextProps) {
@@ -31,12 +23,6 @@ class App extends React.Component {
         }
 
         return true;
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.location !== this.props.location) {
-            this.props.finishLoading();
-        }
     }
 
     render() {
@@ -65,7 +51,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
     startLoading: () => dispatch(startLoading()),
-    finishLoading: () => dispatch(finishLoading())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

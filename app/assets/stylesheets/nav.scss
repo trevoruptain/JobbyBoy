@@ -73,12 +73,13 @@ nav {
         border-radius: 10px;
         font-weight: bolder;
         transition: all 0.5s ease-in-out;
+        cursor: pointer;
     }
 
     .button:hover { 
         text-decoration: none;
         background-color: $main-color;
-        color: #F3F3f3;
+        color: #030303;
         transition: all 0.5s ease-in-out;
     }
     

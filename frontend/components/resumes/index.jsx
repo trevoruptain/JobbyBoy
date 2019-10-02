@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Up from '../nav/up';
+
+import { finishLoading } from '../../actions/loading-actions';
 import { fetchResumes } from '../../actions/resume-actions';
 
 class Resumes extends React.Component {
@@ -8,8 +11,8 @@ class Resumes extends React.Component {
         super(props);
 
         this.state = {
-            name: '',
-            jobURI: '',
+            jobTitle: '',
+            jobURL: '',
             jobDescription: '',
             primaryColor: '',
             secondaryColor: '',
@@ -21,7 +24,9 @@ class Resumes extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchResumes();
+        this.props.fetchResumes().then(() => {
+            this.props.finishLoading();
+        })
     }
 
     handleSubmit(e) {
@@ -38,7 +43,7 @@ class Resumes extends React.Component {
     render() {
         const resumes = this.props.resumes.map(resume => {
             return (
-                <div className='resume'>
+                <div key={resume.id} className='resume'>
                     <h2>{resume.title}</h2>
                     <p>Primary Color: { resume.primaryColor }</p>
                     <p>Secondary Color: { resume.secondaryColor }</p>
@@ -47,12 +52,12 @@ class Resumes extends React.Component {
         })
 
         return (
-            <div id="main">
+            <div id="main" className='column-2'>
                 <section id="resume-create">
                     <form onSubmit={ this.handleSubmit }>
                         <h4>Generate New Resume</h4>
-                        <input type="text" value={this.state.name} placeholder="Your Name" onChange={this.handleUpdate('name')}/>
-                        <input type="text" value={this.state.jobURI} placeholder="Job URL" onChange={this.handleUpdate('jobURI')}/>
+                        <input type="text" value={this.state.name} placeholder="Job Title" onChange={this.handleUpdate('title')}/>
+                        <input type="text" value={this.state.jobURL} placeholder="Job URL" onChange={this.handleUpdate('jobURL')}/>
                         <textarea value={this.state.jobDescription} placeholder="Job Description" onChange={this.handleUpdate('jobDescription')}/>
                         <input type="text" value={this.state.primaryColor} placeholder="Primary Color" onChange={this.handleUpdate('primaryColor')}/>
                         <input type="text" value={this.state.secondaryColor} placeholder="Secondary Color" onChange={this.handleUpdate('secondaryColor')}/>
@@ -63,6 +68,7 @@ class Resumes extends React.Component {
                 <section id="resume-index">
                     { resumes }
                 </section>
+                <Up bottom={'30px'} left={'50px'}/>
             </div>
         );  
     }
@@ -75,7 +81,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchResumes: () => dispatch(fetchResumes())
+    fetchResumes: () => dispatch(fetchResumes()),
+    finishLoading: () => dispatch(finishLoading())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Resumes);

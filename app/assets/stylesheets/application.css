@@ -23,3 +23,11 @@
  #main {
      min-height: 500px;
  }
+
+ .column-2 {
+     display: flex;
+ }
+
+ html {
+     scroll-behavior: smooth;
+ }

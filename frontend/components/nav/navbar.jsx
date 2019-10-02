@@ -5,12 +5,14 @@ import { withRouter } from 'react-router';
 
 import wobble from '../../util/wobble_util';
 
+import Download from './download';
+
 const userLinks = (linkColor) => (
     <ul>
         <li><Link to="/resumes" className={linkColor}>Resumes</Link></li>
         <li><Link to="/profile" className={linkColor}>Profile</Link></li>
         <li><Link to="/api" className={linkColor}>API</Link></li>
-        <li><Link to="/extension" className={`button ${linkColor}`}>Extension</Link></li>
+        <li><Download linkColor={linkColor}></Download></li>
     </ul>
 )
 
