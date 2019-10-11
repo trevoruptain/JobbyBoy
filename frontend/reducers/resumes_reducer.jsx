@@ -1,6 +1,6 @@
 const RECEIVE_RESUMES = "RECEIVE_RESUMES";
 
-const NotesReducer = (state = {}, action) => {
+const ResumesReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     
@@ -12,4 +12,4 @@ const NotesReducer = (state = {}, action) => {
     }
 };
 
-export default NotesReducer;
+export default ResumesReducer;

@@ -1,8 +1,26 @@
 #user-info {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    width: 400px;
+    
+}
+
+#user-technologies {
+    ul {
+        width: 400px;
+        box-sizing: border-box;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            list-style-type: none;
+            display: inline;
+            margin: 5px 5px 5px 0;
+            padding: 5px;
+            border: dashed 1px #030303;
+            border-radius: 10px;
+            background-color: #FFF;
+            font-size: 14px;
+        }
+    }
 }
 
 .profile {

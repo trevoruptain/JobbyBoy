@@ -1,4 +1,4 @@
-import { fetchAllResumes } from '../util/resume_api_util';
+import { fetchAllResumes } from '../util/api/resume_api_util';
 
 export const RECEIVE_RESUMES = 'RECEIVE_RESUMES';
 

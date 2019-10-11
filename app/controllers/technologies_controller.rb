@@ -17,8 +17,7 @@ class TechnologiesController < ApplicationController
   end
 
   def index
-    debugger
-    @technologies = Technology.all
+    @technologies = Technology.first(20)
     render :index
   end
 

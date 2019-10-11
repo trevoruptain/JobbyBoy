@@ -9,19 +9,18 @@ class Profile extends React.Component {
             email: '',
             phone: '',
             address: '',
-            objective: ''
+            objective: '',
+            technology: '',
+            technologies: ['React', 'Redux', 'JavaScript', 'Ruby', 'Rails', 'GraphQL', 'SQL', 'Responsive Design']
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
+        this.handleTechnologiesSubmit = this.handleTechnologiesSubmit.bind(this);
     }
 
     componentDidMount() {
         this.props.finishLoading();
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
     }
 
     handleUpdate(name) {
@@ -31,12 +30,20 @@ class Profile extends React.Component {
         };
     }
 
+    handleProfileSubmit(e) {
+        e.preventDefault();
+    }
+
+    handleTechnologiesSubmit(e) {
+        e.preventDefault();
+    }
+
     render() {
         return (
             <div id="main" className="column-1 profile">
                 <section id="user-info" className="boxy-boy">
                     <h4>Personal Info</h4>
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleProfileSubmit}>
                         <input type="text" value={this.state.name} placeholder="Name" onChange={this.handleUpdate('name')} />
                         <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleUpdate('email')} />
                         <input type="text" value={this.state.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
@@ -44,6 +51,21 @@ class Profile extends React.Component {
                         <textarea value={this.state.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
                         <input type="submit" value="Submit" />
                     </form>
+                </section>
+                <section id="user-technologies" className="boxy-boy">
+                    <h4>Technologies</h4>
+                    <form onSubmit={this.handleTechnologiesSubmit}>
+                        <input type="text" value={this.state.technology} placeholder="Add Technology" onChange={this.handleUpdate('technology')} />
+                        <input type="submit" value="Submit" />
+                    </form>
+
+                    <ul>
+                        {this.state.technologies.map(technology => {
+                            return (
+                                <li key={technology}>{ technology }</li>
+                            );
+                        })}
+                    </ul>
                 </section>
             </div>
         );
@@ -59,6 +81,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
     finishLoading: () => dispatch(finishLoading()),
+    deleteTechnology: () => console.log('delete beep boop'),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
