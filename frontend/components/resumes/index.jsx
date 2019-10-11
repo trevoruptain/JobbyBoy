@@ -1,10 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
 import Up from '../nav/up';
-
-import { finishLoading } from '../../actions/loading-actions';
-import { fetchResumes } from '../../actions/resume-actions';
 
 class Resumes extends React.Component {
     constructor(props) {
@@ -17,7 +12,7 @@ class Resumes extends React.Component {
             primaryColor: '',
             secondaryColor: '',
             font: ''
-        }
+        };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
@@ -26,7 +21,7 @@ class Resumes extends React.Component {
     componentDidMount() {
         this.props.fetchResumes().then(() => {
             this.props.finishLoading();
-        })
+        });
     }
 
     handleSubmit(e) {
@@ -37,7 +32,7 @@ class Resumes extends React.Component {
         return (e) => {
             e.preventDefault();
             this.setState({[name]: e.target.value})
-        }
+        };
     }
 
     render() {
@@ -49,7 +44,7 @@ class Resumes extends React.Component {
                     <p>Secondary Color: { resume.secondaryColor }</p>
                 </div>
             );
-        })
+        });
 
         return (
             <div id="main" className='column-2'>
@@ -74,15 +69,19 @@ class Resumes extends React.Component {
     }
 }
 
+import { connect } from 'react-redux';
+import { finishLoading } from '../../actions/loading-actions';
+import { fetchResumes } from '../../actions/resume-actions';
+
 const mapStateToProps = state => {
     return {
-        resumes: Object.values(state.entities.resumes)
-    }
+        resumes: Object.values(state.entities.resumes),
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({
     fetchResumes: () => dispatch(fetchResumes()),
-    finishLoading: () => dispatch(finishLoading())
+    finishLoading: () => dispatch(finishLoading()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Resumes);

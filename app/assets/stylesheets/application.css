@@ -24,6 +24,10 @@
      min-height: 500px;
  }
 
+ .column-1 {
+     padding-top: 150px;
+ }
+
  .column-2 {
      display: flex;
  }
