@@ -19,18 +19,6 @@
             padding: 20px;
             background-color: aliceblue;
 
-            input, textarea {
-                height: 35px;
-                width: 400px;
-                margin: 5px 0;
-                font-family: 'Quicksand', sans-serif;
-                padding: 5px 10px;
-                font-size: 12px;
-                box-sizing: border-box;
-                border-radius: 5px;
-                border: dashed 1px cornflowerblue;
-            }
-
             textarea {
                 height: 100px;
             }
@@ -48,11 +36,6 @@
                 color: #F3F3F3;
                 transition: all 0.5s;
             }
-        }
-
-        h4 {
-            font-size: 30px;
-            margin: 0 0 15px 0;
         }
     }
 

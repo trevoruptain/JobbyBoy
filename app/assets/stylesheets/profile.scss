@@ -1,0 +1,12 @@
+#user-info {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
