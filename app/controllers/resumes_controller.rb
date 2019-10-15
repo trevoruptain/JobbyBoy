@@ -47,6 +47,6 @@ class ResumesController < ApplicationController
 
   private
   def resume_params
-    params.require(:resume).permit(:title, :primary_color, :secondary_color)
+    params.require(:resume).permit(:company_name, :title, :url, :description, :font, :primary_color, :secondary_color)
   end
 end

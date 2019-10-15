@@ -36,6 +36,13 @@ class Profile extends React.Component {
 
     handleTechnologiesSubmit(e) {
         e.preventDefault();
+        const newTechnologies = this.state.technologies.slice();
+        newTechnologies.push(e.target.children[0].value);
+    
+        this.setState({
+            technology: '',
+            technologies: newTechnologies,
+        });
     }
 
     render() {

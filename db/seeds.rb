@@ -32,15 +32,23 @@ UserTechnology.reset_pk_sequence
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.phone_number,
         address: Faker::Address.full_address,
-        objective: Faker::TvShows::Community.quotes
+        objective: Faker::TvShows::Community.quotes,
+        google_token: 'abc123',
+        google_refresh_token: 'abc123'
     )
 end
 
 10.times do |i|
     user_id = (i % 2) + 1
+    word_count = rand(500) + 500
+    fonts = ['Noto Sans', 'Open Sans', 'Quicksand', 'Raleway', 'Roboto', 'Rubik']
 
     Resume.create!(
-        title: Faker::Cannabis.strain,
+        company_name: Faker::Company.name,
+        title: Faker::Company.industry,
+        url: Faker::Company.logo,
+        description: Faker::Lorem.sentence(word_count: word_count),
+        font: fonts.sample,
         primary_color: Faker::Color.hex_color,
         secondary_color: Faker::Color.hex_color,
         user_id: user_id

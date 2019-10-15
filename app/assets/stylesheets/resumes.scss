@@ -18,6 +18,41 @@
             border-radius: 10px;
             padding: 20px;
             background-color: aliceblue;
+
+            input, textarea {
+                height: 35px;
+                width: 400px;
+                margin: 5px 0;
+                font-family: 'Quicksand', sans-serif;
+                padding: 5px 10px;
+                font-size: 12px;
+                box-sizing: border-box;
+                border-radius: 5px;
+                border: dashed 1px cornflowerblue;
+            }
+
+            textarea {
+                height: 100px;
+            }
+
+            input[type=submit] {
+                background-color: cornflowerblue;
+                color: #030303;
+                cursor: pointer;
+                transition: all 0.5s;
+            }
+
+            input[type=submit]:hover {
+                background-color: #030303;
+                border: solid 1px #F3F3F3;
+                color: #F3F3F3;
+                transition: all 0.5s;
+            }
+        }
+
+        h4 {
+            font-size: 30px;
+            margin: 0 0 15px 0;
         }
     }
 
@@ -40,6 +75,43 @@
             text-align: left;
             margin: 20px 0;
             background-color: #FFF;
+            display: flex;
+            justify-content: space-between;
+
+            .resume-left {
+                h2 {
+                    margin: 15px 0;
+                }
+
+                 .color {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    border: dashed 1px #030303;
+                }
+            }
+
+            .resume-left > div {
+                display: flex;
+                width: 70px;
+                justify-content: space-between;
+            }
+
+            .resume-right {
+                display: flex;
+                font-size: 25px;
+                width: 200px;
+                height: 30px;
+                justify-content: space-between;
+
+                a {
+                    text-decoration: none;
+                }
+
+                div {
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
