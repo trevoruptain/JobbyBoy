@@ -6,17 +6,40 @@ class Profile extends React.Component {
 
         this.state = {
             name: '',
-            email: '',
             phone: '',
+            email: '',
+            personalSite: '',
             address: '',
             objective: '',
             technology: '',
-            technologies: ['React', 'Redux', 'JavaScript', 'Ruby', 'Rails', 'GraphQL', 'SQL', 'Responsive Design']
+            technologies: ['React', 'Redux', 'JavaScript', 'Ruby', 'Rails', 'GraphQL', 'SQL', 'Responsive Design'],
+            experience: '',
+            experiences: {
+                google: {
+                    name: 'Google',
+                    dates: 'June 2020 - July 2022',
+                    description: 'Lorem ipsum solor dit amet consectitur.', 
+                    bullets: ['Quis nostrud exercitation ullamco laboris nisi ut aliquip ex', 
+                            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+                            'Excepteur sint occaecat cupidatat non proident']
+                }
+            },
+            project: '',
+            projects: {
+                projectOne: {
+                    name: 'Trevornote',
+                    description: 'A note taking app built with Ruby, Rails, and React',
+                    bullets: ['Lorem ipsum dolor sit amet', 
+                              'Consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+                              'Quis nostrud exercitation ullamco']
+                }
+            }
         };
 
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
         this.handleTechnologiesSubmit = this.handleTechnologiesSubmit.bind(this);
+        this.handleDeleteTechnology = this.handleDeleteTechnology.bind(this);
     }
 
     componentDidMount() {
@@ -41,8 +64,32 @@ class Profile extends React.Component {
     
         this.setState({
             technology: '',
-            technologies: newTechnologies,
+            technologies: newTechnologies
         });
+    }
+
+    handleDeleteTechnology(e) {
+        e.preventDefault();
+        const technologyName = e.target.parentNode.innerText.slice(0, -4);
+        const newTechnologies = this.state.technologies.filter(technology => technology !== technologyName);
+        this.setState({technologies: newTechnologies});
+    }
+
+    addExperienceBullet(e) {
+        e.preventDefault();
+        debugger;
+        const newExperiences = this.state.experiences.slice();
+        newExperiences[e.target.id].bullets.push(e.target.innerText);
+
+        this.setState({
+            experience: '',
+            experiences: newExperiences
+        });
+    }
+
+    removeExperienceBullet(index, companyName) {
+        e.preventDefault();
+        
     }
 
     render() {
@@ -52,8 +99,9 @@ class Profile extends React.Component {
                     <h4>Personal Info</h4>
                     <form onSubmit={this.handleProfileSubmit}>
                         <input type="text" value={this.state.name} placeholder="Name" onChange={this.handleUpdate('name')} />
-                        <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleUpdate('email')} />
                         <input type="text" value={this.state.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
+                        <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleUpdate('email')} />
+                        <input type="text" value={this.state.personalSite} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
                         <input type="text" value={this.state.address} placeholder="Address" onChange={this.handleUpdate('address')} />
                         <textarea value={this.state.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
                         <input type="submit" value="Submit" />
@@ -69,10 +117,61 @@ class Profile extends React.Component {
                     <ul>
                         {this.state.technologies.map(technology => {
                             return (
-                                <li key={technology}>{ technology }</li>
+                                <li key={technology}>{technology}<p className='trash' onClick={this.handleDeleteTechnology}>🗑</p></li>
                             );
                         })}
                     </ul>
+                </section>
+                <section id="user-experiences" className="boxy-boy">
+                    <h4>Experiences</h4>
+                    <form onSubmit={this.handleExperiencesSubmit}>
+                        <input type="text" value={this.state.experience} placeholder="Add New Employer" onChange={() => this.handleUpdate('experience')} />
+                        <input type="submit" value="Submit" />
+                    </form>
+
+                    <div>
+                        {Object.keys(this.state.experiences).map(companyName => {
+                            const experience = this.state.experiences[companyName];
+                            return (
+                                <div key={ companyName }>
+                                    <h3>{experience.name} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
+                                    <div>{experience.dates} <p className='edit'>✏️</p></div>
+                                    <i>{experience.description}</i> <p className='edit'>✏️</p>
+                                    <ul>
+                                        {experience.bullets.map(bullet => (
+                                            <li key={bullet}>{bullet} <div className='delete-bullet'><p className='trash'>🗑</p><p className='edit'>✏️</p></div></li>
+                                        ))}
+                                        <p>➕</p>
+                                    </ul>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
+                <section id="user-projects" className="boxy-boy">
+                    <h4>Projects</h4>
+                    <form onSubmit={this.handleProjectsSubmit}>
+                        <input type="text" value={this.state.experience} placeholder="Add New Project" onChange={() => this.handleUpdate('experience')} />
+                        <input type="submit" value="Submit" />
+                    </form>
+
+                    <div>
+                        {Object.keys(this.state.projects).map(projectName => {
+                            const project = this.state.projects[projectName];
+                            return (
+                                <div key={projectName}>
+                                    <h3>{project.name} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
+                                    <i>{project.description}</i> <p className='edit'>✏️</p>
+                                    <ul>
+                                        {project.bullets.map(bullet => (
+                                            <li key={bullet}>{bullet} <div className='delete-bullet'><p className='trash'>🗑</p><p className='edit'>✏️</p></div></li>
+                                        ))}
+                                        <p>➕</p>
+                                    </ul>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </section>
             </div>
         );
