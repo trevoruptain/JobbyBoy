@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: resume_projects
+# Table name: educations
 #
 #  id         :bigint           not null, primary key
-#  resume_id  :integer          not null
-#  project_id :integer          not null
+#  school     :string
+#  year       :integer
+#  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class ResumeProjectTest < ActiveSupport::TestCase
+class EducationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

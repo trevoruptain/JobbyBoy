@@ -26,12 +26,20 @@ class Profile extends React.Component {
             },
             project: '',
             projects: {
-                projectOne: {
+                trevornote: {
                     name: 'Trevornote',
                     description: 'A note taking app built with Ruby, Rails, and React',
                     bullets: ['Lorem ipsum dolor sit amet', 
                               'Consectetur adipiscing elit, sed do eiusmod tempor incididunt',
                               'Quis nostrud exercitation ullamco']
+                }
+            },
+            education: '',
+            educations: {
+                universityOfWashington: {
+                    school: 'University of Washington',
+                    year: 2016,
+                    degree: 'B.S. Oceanography'
                 }
             }
         };
@@ -143,6 +151,26 @@ class Profile extends React.Component {
                                         ))}
                                         <p>➕</p>
                                     </ul>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
+                <section id="user-education" className="boxy-boy">
+                    <h4>Education</h4>
+                    <form onSubmit={this.handleEducationSubmit}>
+                        <input type="text" value={this.state.experience} placeholder="Add New School" onChange={() => this.handleUpdate('education')} />
+                        <input type="submit" value="Submit" />
+                    </form>
+
+                    <div>
+                        {Object.keys(this.state.educations).map(schoolName => {
+                            const education = this.state.educations[schoolName];
+                            return (
+                                <div key={schoolName}>
+                                    <h3>{education.school} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
+                                    <div>{education.year} <p className='edit'>✏️</p></div>
+                                    <i>{education.degree}</i> <p className='edit'>✏️</p>
                                 </div>
                             );
                         })}

@@ -4,8 +4,7 @@
 #
 #  id            :bigint           not null, primary key
 #  user_id       :integer
-#  technology_id :string
-#  name          :string
+#  technology_id :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
