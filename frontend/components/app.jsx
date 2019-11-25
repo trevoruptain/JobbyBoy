@@ -9,6 +9,8 @@ import NavBar from './nav/navbar';
 import Footer from './nav/footer';
 import Splash from './splash';
 import Resumes from './resumes';
+import Profile from './profile';
+import API from './api';
 
 import { startLoading } from '../actions/loading-actions';
 
@@ -35,6 +37,8 @@ class App extends React.Component {
                 <Switch>
                     <Route exact path="/" component={ Splash } />
                     <Route path="/resumes" component={ Resumes } />
+                    <Route path="/profile" component={ Profile } />
+                    <Route path="/api" component={ API } />
                 </Switch>
                 <Footer />
             </div>

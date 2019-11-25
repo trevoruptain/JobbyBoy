@@ -3,8 +3,8 @@
 # Table name: resume_projects
 #
 #  id         :bigint           not null, primary key
-#  resume_id  :string           not null
-#  project_id :string           not null
+#  resume_id  :integer          not null
+#  project_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

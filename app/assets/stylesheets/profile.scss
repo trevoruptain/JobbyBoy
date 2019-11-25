@@ -1,0 +1,75 @@
+#user-experiences, #user-projects {
+    h3 {
+        margin: 20px 0 0 0;
+    }
+
+    div {
+        margin: 5px 0;
+    }
+
+    .edit {
+        margin: 0 5px;
+    }
+}
+
+#user-technologies {
+    ul {
+        width: 400px;
+        box-sizing: border-box;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            list-style-type: none;
+            display: inline;
+            margin: 5px 5px 5px 0;
+            padding: 5px;
+            border: dashed 1px #030303;
+            border-radius: 10px;
+            background-color: #FFF;
+            font-size: 14px;
+
+            .trash {
+                font-size: 12px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .delete-bullet {
+        font-size: 10px;
+        cursor: pointer;
+        display: inline;
+    }
+
+    .trash {
+        display: inline-block;
+        margin: 0;
+        cursor: pointer;
+        transition: all 2s ease-in-out;
+    }
+
+    .trash:hover {
+        transform: rotate(180deg);
+        transition: all 2s ease-in-out;
+    }
+
+    .edit {
+        display: inline-block;
+        margin: 0 5px 0 0;
+        cursor: pointer;
+        transition: all 2s ease-in-out;
+    }
+
+    .edit:hover {
+        transform: rotate(1440deg);
+        transition: all 2s ease-in-out;
+    }
+}

@@ -6,7 +6,7 @@
 #  start_date   :string           not null
 #  end_date     :string           not null
 #  company_name :string           not null
-#  user_id      :string           not null
+#  user_id      :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

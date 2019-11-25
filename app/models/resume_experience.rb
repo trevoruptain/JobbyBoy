@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: resume_experience
+# Table name: resume_experiences
 #
-#  id         :bigint           not null, primary key
-#  resume_id  :string           not null
-#  experience_id :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :bigint           not null, primary key
+#  resume_id     :integer
+#  experience_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 class ResumeExperience < ApplicationRecord

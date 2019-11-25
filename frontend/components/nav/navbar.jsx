@@ -5,14 +5,14 @@ import { withRouter } from 'react-router';
 
 import wobble from '../../util/wobble_util';
 
-import Download from './download';
+import ArrowyBoy from './arrowyboy';
 
 const userLinks = (linkColor) => (
     <ul>
         <li><Link to="/resumes" className={linkColor}>Resumes</Link></li>
         <li><Link to="/profile" className={linkColor}>Profile</Link></li>
         <li><Link to="/api" className={linkColor}>API</Link></li>
-        <li><Download linkColor={linkColor}></Download></li>
+        <li><ArrowyBoy linkColor={linkColor} icon='⬇' id='download'></ArrowyBoy></li>
     </ul>
 )
 
@@ -49,7 +49,7 @@ class NavBar extends React.Component {
                         </ul>
                     </Link>
                 </h1>
-                {links}
+                { links }
             </nav>
         )
     }
@@ -57,7 +57,7 @@ class NavBar extends React.Component {
 
 const mapStateToProps = state => {
     return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
 }};
 
 const mapDispatchToProps = () => ({

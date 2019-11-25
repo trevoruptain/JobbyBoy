@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_000741) do
+ActiveRecord::Schema.define(version: 2019_11_25_000643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "educations", force: :cascade do |t|
+    t.string "school"
+    t.integer "year"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "experience_bullets", force: :cascade do |t|
     t.integer "experience_id", null: false
@@ -65,7 +73,11 @@ ActiveRecord::Schema.define(version: 2019_09_21_000741) do
   end
 
   create_table "resumes", force: :cascade do |t|
+    t.string "company_name", null: false
     t.string "title", null: false
+    t.string "url", null: false
+    t.text "description", null: false
+    t.string "font", null: false
     t.string "primary_color", null: false
     t.string "secondary_color", null: false
     t.integer "user_id", null: false
@@ -95,6 +107,8 @@ ActiveRecord::Schema.define(version: 2019_09_21_000741) do
     t.string "phone", null: false
     t.string "address", null: false
     t.string "objective", null: false
+    t.string "google_token", null: false
+    t.string "google_refresh_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_users_on_name"

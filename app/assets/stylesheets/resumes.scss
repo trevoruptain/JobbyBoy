@@ -75,6 +75,43 @@
             text-align: left;
             margin: 20px 0;
             background-color: #FFF;
+            display: flex;
+            justify-content: space-between;
+
+            .resume-left {
+                h2 {
+                    margin: 15px 0;
+                }
+
+                 .color {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    border: dashed 1px #030303;
+                }
+            }
+
+            .resume-left > div {
+                display: flex;
+                width: 70px;
+                justify-content: space-between;
+            }
+
+            .resume-right {
+                display: flex;
+                font-size: 25px;
+                width: 200px;
+                height: 30px;
+                justify-content: space-between;
+
+                a {
+                    text-decoration: none;
+                }
+
+                div {
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

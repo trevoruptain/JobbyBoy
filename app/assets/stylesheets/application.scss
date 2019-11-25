@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ 
+ *= require_tree .
+ *= require_self
+ */
+
+ html, body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Quicksand', sans-serif;
+ }
+
+html {
+    scroll-behavior: smooth;
+}
+
+ #main {
+     min-height: 500px;
+ }
+
+ .column-1 {
+    padding: 150px 5vw 50px 5vw;
+    box-sizing: border-box;
+ }
+
+ .column-2 {
+     display: flex;
+ }
+
+.boxy-boy {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    margin: 40px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+    border: dashed 1px #030303;
+    background-color: aliceblue;
+}
+
+input, textarea {
+    height: 35px;
+    width: 400px;
+    margin: 5px 0;
+    font-family: 'Quicksand', sans-serif;
+    padding: 5px 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: dashed 1px cornflowerblue;
+}
+
+input[type=submit] {
+    background-color: cornflowerblue;
+    color: #030303;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+input[type=submit]:hover {
+    background-color: #030303;
+    border: solid 1px #F3F3F3;
+    color: #F3F3F3;
+    transition: all 0.5s;
+}
+
+textarea {
+    height: 100px;
+}
+
+#main {
+    h4 {
+        font-size: 30px;
+        margin: 0 0 15px 0;
+    }
+}
+
+#rolly-boy {
+    display: flex;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: serif;
+    border-radius: 50%;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    top: -15px;
+    left: -15px;
+    width: 20px;
+    height: 20px;
+    border: dashed 1px #000;
+
+    hr {
+        width: 8px;
+        border: solid 1px #FFF;
+        border-radius: 5px;
+    }
+}

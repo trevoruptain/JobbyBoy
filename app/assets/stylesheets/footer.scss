@@ -6,11 +6,12 @@
     background-size: cover;
     background-position: center center;
     color: #F3F3F3;
-    display: flex;
     justify-content: space-evenly;
     box-sizing: border-box;
     padding: 50px;
     z-index: 2;
+    display: inline-flex;
+    width: 100vw;
 
     div {
         width: 200px;
