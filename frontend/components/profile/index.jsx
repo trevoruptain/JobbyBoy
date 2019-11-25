@@ -5,20 +5,22 @@ class Profile extends React.Component {
         super(props);
          
         this.state = {
-            name: props.name,
-            phone: props.phone,
-            email: props.email,
-            personalSite: props.personalSite,
-            address: props.address,
-            objective: props.objective,
+            personalInfo: {
+                name: '',
+                phone: '',
+                email: '',
+                personalSite: '',
+                address: '',
+                objective: ''
+            },
             technology: '',
-            technologies: props.technologies,
+            technologies: {},
             experience: '',
-            experiences: props.experiences,
+            experiences: {},
             project: '',
-            projects: props.projects,
+            projects: {},
             education: '',
-            educations: props.educations
+            educations: {}
         };
         
 
@@ -32,12 +34,18 @@ class Profile extends React.Component {
         Promise.all([this.props.fetchPersonalInfo(1), this.props.fetchTechnologies(1),
                      this.props.fetchExperiences(1), this.props.fetchEducations(1),
                      this.props.fetchProjects(1)])
-                .then(() => {
+                .then(values => {
+                    values.forEach(value => {
+                        const key = Object.keys(value.payload)[0];
+                        this.setState({
+                            [key]: value.payload[key]
+                        });
+                    })
                     this.props.finishLoading();
                 })
                 .catch(err => {
                     console.log(err);
-                })
+                });
     }
 
     handleUpdate(name) {
@@ -71,7 +79,6 @@ class Profile extends React.Component {
 
     addExperienceBullet(e) {
         e.preventDefault();
-        debugger;
         const newExperiences = this.state.experiences.slice();
         newExperiences[e.target.id].bullets.push(e.target.innerText);
 
@@ -92,12 +99,12 @@ class Profile extends React.Component {
                 <section id="user-info" className="boxy-boy">
                     <h4>Personal Info</h4>
                     <form onSubmit={this.handleProfileSubmit}>
-                        <input type="text" value={this.state.name} placeholder="Name" onChange={this.handleUpdate('name')} />
-                        <input type="text" value={this.state.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
-                        <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleUpdate('email')} />
-                        <input type="text" value={this.state.personalSite} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
-                        <input type="text" value={this.state.address} placeholder="Address" onChange={this.handleUpdate('address')} />
-                        <textarea value={this.state.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
+                        <input type="text" value={this.state.personalInfo.name} placeholder="Name" onChange={this.handleUpdate('name')} />
+                        <input type="text" value={this.state.personalInfo.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
+                        <input type="text" value={this.state.personalInfo.email} placeholder="Email" onChange={this.handleUpdate('email')} />
+                        <input type="text" value={this.state.personalInfo.personalSite} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
+                        <input type="text" value={this.state.personalInfo.address} placeholder="Address" onChange={this.handleUpdate('address')} />
+                        <textarea value={this.state.personalInfo.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
                         <input type="submit" value="Submit" />
                     </form>
                 </section>
@@ -109,9 +116,10 @@ class Profile extends React.Component {
                     </form>
 
                     <ul>
-                        {this.state.technologies.map(technology => {
+                        {Object.keys(this.state.technologies).map(technology => {
+                            const currentTechnology = this.state.technologies[technology].name;
                             return (
-                                <li key={technology}>{technology}<p className='trash' onClick={this.handleDeleteTechnology}>🗑</p></li>
+                                <li key={currentTechnology}>{currentTechnology}<p className='trash' onClick={this.handleDeleteTechnology}>🗑</p></li>
                             );
                         })}
                     </ul>
@@ -128,12 +136,12 @@ class Profile extends React.Component {
                             const experience = this.state.experiences[companyName];
                             return (
                                 <div key={ companyName }>
-                                    <h3>{experience.name} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
-                                    <div>{experience.dates} <p className='edit'>✏️</p></div>
+                                    <h3>{experience.company_name} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
+                                    <div>{experience.start_date} - {experience.end_date}</div>
                                     <i>{experience.description}</i> <p className='edit'>✏️</p>
                                     <ul>
-                                        {experience.bullets.map(bullet => (
-                                            <li key={bullet}>{bullet} <div className='delete-bullet'><p className='trash'>🗑</p><p className='edit'>✏️</p></div></li>
+                                        {experience.experience_bullets.map(bullet => (
+                                            <li key={bullet.id}>{bullet.body} <div className='delete-bullet'><p className='trash'>🗑</p><p className='edit'>✏️</p></div></li>
                                         ))}
                                         <p>➕</p>
                                     </ul>
@@ -174,11 +182,11 @@ class Profile extends React.Component {
                             const project = this.state.projects[projectName];
                             return (
                                 <div key={projectName}>
-                                    <h3>{project.name} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
-                                    <i>{project.description}</i> <p className='edit'>✏️</p>
+                                    <h3>{project.title} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
+                                    <i>{project.description}</i> <p className='edthis.it'>✏️</p>
                                     <ul>
-                                        {project.bullets.map(bullet => (
-                                            <li key={bullet}>{bullet} <div className='delete-bullet'><p className='trash'>🗑</p><p className='edit'>✏️</p></div></li>
+                                        {project.project_bullets.map(bullet => (
+                                            <li key={bullet.id}>{bullet.body} <div className='delete-bullet'><p className='trash'>🗑</p><p className='edit'>✏️</p></div></li>
                                         ))}
                                         <p>➕</p>
                                     </ul>
@@ -206,20 +214,14 @@ const mapStateToProps = state => {
         educations: undefined
     }
 
-    const profile = state.profile ? state.profile : dummyProfile;
-    const personalInfo = profile.personalInfo ? profile.personalInfo : undefined;
+    const profile = state.entities.profile ? state.entities.profile : dummyProfile;
 
     return { 
-        name: personalInfo ? state.profile.personalInfo.name : '',
-        phone: personalInfo ? state.profile.personalInfo.phone : '',
-        email: personalInfo ? state.profile.personalInfo.email : '',
-        personalSite: personalInfo ? state.profile.personalInfo.personalSite : '',
-        address: personalInfo ? state.profile.personalInfo.address : '',
-        objective: personalInfo ? state.profile.personalInfo.objective : '',
-        technologies: profile.technologies ? state.profile.technologies : [],
-        experiences: profile.experiences ? state.profile.experiences : [],
-        projects: profile.projects ? state.profile.projects : [],
-        educations: profile.educations ? state.profile.educations : []
+        personalInfo: profile.personalInfo ? profile.personalInfo.objective : {},
+        technologies: profile.technologies ? profile.technologies : {},
+        experiences: profile.experiences ? profile.experiences : {},
+        projects: profile.projects ? profile.projects : {},
+        educations: profile.educations ? profile.educations : {}
     };
 };
 

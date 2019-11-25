@@ -1,1 +1,1 @@
-json.extract! experience, :id, :start_date, :end_date, :user_id
+json.extract! experience, :id, :company_name, :start_date, :end_date, :user_id, :experience_bullets

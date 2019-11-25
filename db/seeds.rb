@@ -78,6 +78,7 @@ end
 20.times do
     Project.create!(
         title: Faker::Military.marines_rank,
+        description: Faker::TvShows::StrangerThings.quote,
         user_id: rand(2) + 1
     )
 end
@@ -103,7 +104,7 @@ end
 100.times do 
     ExperienceBullet.create!(
         experience_id: rand(20) + 1,
-        body: Faker::TvShows::MichaelScott
+        body: Faker::TvShows::MichaelScott.quote
     )
 end
 

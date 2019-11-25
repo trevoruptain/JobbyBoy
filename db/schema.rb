@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_000643) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
+    t.string "description"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

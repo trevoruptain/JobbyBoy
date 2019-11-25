@@ -12,7 +12,7 @@ export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
 
 export const receivePersonalInfo = (info) => ({
     type: RECEIVE_PERSONAL_INFO,
-    payload: info
+    payload: { personalInfo: info }
 });
 
 export const receiveTechnologies = (technologies) => ({

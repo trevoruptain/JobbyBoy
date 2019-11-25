@@ -7,7 +7,7 @@ const ProfileReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_PERSONAL_INFO:
-            return Object.assign({}, state, { personalInfo: action.payload });
+            return Object.assign({}, state, { personalInfo: action.payload.personalInfo });
         case RECEIVE_TECHNOLOGIES:
             return Object.assign({}, state, { technologies: action.payload.technologies });
         case RECEIVE_EXPERIENCES:

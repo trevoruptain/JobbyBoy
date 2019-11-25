@@ -1,5 +1,7 @@
 json.educations do
     @educations.each do |education|
-        json.partial! "educations/education", education: education
+        json.set! education.school do
+            json.partial! "educations/education", education: education
+        end
     end
 end
