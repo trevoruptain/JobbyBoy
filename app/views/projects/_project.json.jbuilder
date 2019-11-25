@@ -1,1 +1,1 @@
-json.extract! resume, :id, :title, :user_id
+json.extract! project, :id, :title, :user_id

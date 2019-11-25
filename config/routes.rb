@@ -12,11 +12,11 @@ Rails.application.routes.draw do
 
     resources :educations, except: [:new, :edit]
 
-    resources :experiences, except: [:new, :edit, :index] do 
+    resources :experiences, except: [:new, :edit] do 
       resources :experience_bullets, except: [:new, :edit, :index]
     end
 
-    resources :projects, except: [:new, :edit, :index] do
+    resources :projects, except: [:new, :edit] do
       resources :project_bullets, except: [:new, :edit, :index]
     end
   end

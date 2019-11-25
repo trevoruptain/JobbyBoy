@@ -3,46 +3,24 @@ import React from 'react';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-
+         
         this.state = {
-            name: '',
-            phone: '',
-            email: '',
-            personalSite: '',
-            address: '',
-            objective: '',
+            name: props.name,
+            phone: props.phone,
+            email: props.email,
+            personalSite: props.personalSite,
+            address: props.address,
+            objective: props.objective,
             technology: '',
-            technologies: ['React', 'Redux', 'JavaScript', 'Ruby', 'Rails', 'GraphQL', 'SQL', 'Responsive Design'],
+            technologies: props.technologies,
             experience: '',
-            experiences: {
-                google: {
-                    name: 'Google',
-                    dates: 'June 2020 - July 2022',
-                    description: 'Lorem ipsum solor dit amet consectitur.', 
-                    bullets: ['Quis nostrud exercitation ullamco laboris nisi ut aliquip ex', 
-                            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
-                            'Excepteur sint occaecat cupidatat non proident']
-                }
-            },
+            experiences: props.experiences,
             project: '',
-            projects: {
-                trevornote: {
-                    name: 'Trevornote',
-                    description: 'A note taking app built with Ruby, Rails, and React',
-                    bullets: ['Lorem ipsum dolor sit amet', 
-                              'Consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-                              'Quis nostrud exercitation ullamco']
-                }
-            },
+            projects: props.projects,
             education: '',
-            educations: {
-                universityOfWashington: {
-                    school: 'University of Washington',
-                    year: 2016,
-                    concetration: 'B.S. Oceanography'
-                }
-            }
+            educations: props.educations
         };
+        
 
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
@@ -51,7 +29,15 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.finishLoading();
+        Promise.all([this.props.fetchPersonalInfo(1), this.props.fetchTechnologies(1),
+                     this.props.fetchExperiences(1), this.props.fetchEducations(1),
+                     this.props.fetchProjects(1)])
+                .then(() => {
+                    this.props.finishLoading();
+                })
+                .catch(err => {
+                    console.log(err);
+                })
     }
 
     handleUpdate(name) {
@@ -208,14 +194,43 @@ class Profile extends React.Component {
 
 import { connect } from 'react-redux';
 import { finishLoading } from '../../actions/loading-actions';
+import { fetchPersonalInfo, fetchTechnologies, fetchExperiences,
+         fetchEducations, fetchProjects } from '../../actions/profile-actions';
 
 const mapStateToProps = state => {
-    return {};
+    const dummyProfile = {
+        personalInfo: undefined,
+        technologies: undefined,
+        experiences: undefined,
+        projects: undefined,
+        educations: undefined
+    }
+
+    const profile = state.profile ? state.profile : dummyProfile;
+    const personalInfo = profile.personalInfo ? profile.personalInfo : undefined;
+
+    return { 
+        name: personalInfo ? state.profile.personalInfo.name : '',
+        phone: personalInfo ? state.profile.personalInfo.phone : '',
+        email: personalInfo ? state.profile.personalInfo.email : '',
+        personalSite: personalInfo ? state.profile.personalInfo.personalSite : '',
+        address: personalInfo ? state.profile.personalInfo.address : '',
+        objective: personalInfo ? state.profile.personalInfo.objective : '',
+        technologies: profile.technologies ? state.profile.technologies : [],
+        experiences: profile.experiences ? state.profile.experiences : [],
+        projects: profile.projects ? state.profile.projects : [],
+        educations: profile.educations ? state.profile.educations : []
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({
     finishLoading: () => dispatch(finishLoading()),
     deleteTechnology: () => console.log('delete beep boop'),
+    fetchPersonalInfo: id => dispatch(fetchPersonalInfo(id)),
+    fetchTechnologies: id => dispatch(fetchTechnologies(id)),
+    fetchExperiences: id => dispatch(fetchExperiences(id)),
+    fetchEducations: id => dispatch(fetchEducations(id)),
+    fetchProjects: id => dispatch(fetchProjects(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
