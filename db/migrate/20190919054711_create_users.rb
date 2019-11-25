@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone, null: false
       t.string :address, null: false
       t.string :objective, null: false
-      t.string :google_token, :string, null: false
+      t.string :google_token, null: false
       t.string :google_refresh_token, null: false
 
       t.timestamps

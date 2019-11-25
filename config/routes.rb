@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :technologies, only: [:create, :index, :show]
     resources :generate_auth_token, only: [:index]
 
+    resources :educations, except: [:new, :edit]
+
     resources :experiences, except: [:new, :edit, :index] do 
       resources :experience_bullets, except: [:new, :edit, :index]
     end

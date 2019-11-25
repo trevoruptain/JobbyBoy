@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_000643) do
   create_table "educations", force: :cascade do |t|
     t.string "school"
     t.integer "year"
+    t.string "concentration"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -39,7 +39,7 @@ class Profile extends React.Component {
                 universityOfWashington: {
                     school: 'University of Washington',
                     year: 2016,
-                    degree: 'B.S. Oceanography'
+                    concetration: 'B.S. Oceanography'
                 }
             }
         };
@@ -170,7 +170,7 @@ class Profile extends React.Component {
                                 <div key={schoolName}>
                                     <h3>{education.school} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
                                     <div>{education.year} <p className='edit'>✏️</p></div>
-                                    <i>{education.degree}</i> <p className='edit'>✏️</p>
+                                    <i>{education.concentration}</i> <p className='edit'>✏️</p>
                                 </div>
                             );
                         })}

@@ -10,6 +10,7 @@ require 'faker'
 
 User.delete_all
 Resume.delete_all
+Education.delete_all
 Technology.delete_all
 Project.delete_all
 ProjectBullet.delete_all
@@ -19,6 +20,7 @@ UserTechnology.delete_all
 
 User.reset_pk_sequence
 Resume.reset_pk_sequence
+Education.reset_pk_sequence
 Technology.reset_pk_sequence
 Project.reset_pk_sequence
 ProjectBullet.reset_pk_sequence
@@ -51,6 +53,18 @@ end
         font: fonts.sample,
         primary_color: Faker::Color.hex_color,
         secondary_color: Faker::Color.hex_color,
+        user_id: user_id
+    )
+end
+
+10.times do |i|
+    user_id = (i % 2) + 1
+    rand_year = rand(1991..2019)
+
+    Education.create!(
+        school: Faker::Currency.name,
+        year: rand_year,
+        concentration: Faker::ElectricalComponents.active,
         user_id: user_id
     )
 end
