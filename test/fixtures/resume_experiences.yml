@@ -3,8 +3,8 @@
 # Table name: resume_experiences
 #
 #  id            :bigint           not null, primary key
-#  resume_id     :integer
-#  experience_id :integer
+#  resume_id     :integer          not null
+#  experience_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

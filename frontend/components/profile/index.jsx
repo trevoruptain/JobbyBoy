@@ -102,10 +102,10 @@ class Profile extends React.Component {
                         <input type="text" value={this.state.personalInfo.name} placeholder="Name" onChange={this.handleUpdate('name')} />
                         <input type="text" value={this.state.personalInfo.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
                         <input type="text" value={this.state.personalInfo.email} placeholder="Email" onChange={this.handleUpdate('email')} />
-                        <input type="text" value={this.state.personalInfo.personalSite} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
+                        <input type="text" value={this.state.personalInfo.personal_site} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
                         <input type="text" value={this.state.personalInfo.address} placeholder="Address" onChange={this.handleUpdate('address')} />
                         <textarea value={this.state.personalInfo.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Update" />
                     </form>
                 </section>
                 <section id="user-technologies" className="boxy-boy">
@@ -123,6 +123,26 @@ class Profile extends React.Component {
                             );
                         })}
                     </ul>
+                </section>
+                <section id="user-educations" className="boxy-boy">
+                    <h4>Education</h4>
+                    <form onSubmit={this.handleEducationSubmit}>
+                        <input type="text" value={this.state.experience} placeholder="Add New School" onChange={() => this.handleUpdate('education')} />
+                        <input type="submit" value="Submit" />
+                    </form>
+
+                    <div>
+                        {Object.keys(this.state.educations).map(schoolName => {
+                            const education = this.state.educations[schoolName];
+                            return (
+                                <div key={schoolName}>
+                                    <h3>{education.school} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
+                                    <div>{education.year} <p className='edit'>✏️</p></div>
+                                    <i>{education.concentration}</i> <p className='edit'>✏️</p>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </section>
                 <section id="user-experiences" className="boxy-boy">
                     <h4>Experiences</h4>
@@ -145,26 +165,6 @@ class Profile extends React.Component {
                                         ))}
                                         <p>➕</p>
                                     </ul>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </section>
-                <section id="user-education" className="boxy-boy">
-                    <h4>Education</h4>
-                    <form onSubmit={this.handleEducationSubmit}>
-                        <input type="text" value={this.state.experience} placeholder="Add New School" onChange={() => this.handleUpdate('education')} />
-                        <input type="submit" value="Submit" />
-                    </form>
-
-                    <div>
-                        {Object.keys(this.state.educations).map(schoolName => {
-                            const education = this.state.educations[schoolName];
-                            return (
-                                <div key={schoolName}>
-                                    <h3>{education.school} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
-                                    <div>{education.year} <p className='edit'>✏️</p></div>
-                                    <i>{education.concentration}</i> <p className='edit'>✏️</p>
                                 </div>
                             );
                         })}
@@ -203,7 +203,14 @@ class Profile extends React.Component {
 import { connect } from 'react-redux';
 import { finishLoading } from '../../actions/loading-actions';
 import { fetchPersonalInfo, fetchTechnologies, fetchExperiences,
-         fetchEducations, fetchProjects } from '../../actions/profile-actions';
+         fetchEducations, fetchProjects, updatePersonalInfo, 
+         createTechnology, deleteTechnology, createEducation, 
+         updateEducation, deleteEducation, createExperience, 
+         updateExperience, deleteExperience, createExperienceBullet, 
+         updateExperienceBullet, deleteExperienceBullet, createProject, 
+         updateProject, deleteProject, createProjectBullet, 
+         editProjectBullet, deleteProjectBullet 
+        } from '../../actions/profile-actions';
 
 const mapStateToProps = state => {
     const dummyProfile = {
@@ -227,12 +234,29 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
     finishLoading: () => dispatch(finishLoading()),
-    deleteTechnology: () => console.log('delete beep boop'),
     fetchPersonalInfo: id => dispatch(fetchPersonalInfo(id)),
     fetchTechnologies: id => dispatch(fetchTechnologies(id)),
     fetchExperiences: id => dispatch(fetchExperiences(id)),
     fetchEducations: id => dispatch(fetchEducations(id)),
-    fetchProjects: id => dispatch(fetchProjects(id))
+    fetchProjects: id => dispatch(fetchProjects(id)),
+    updatePersonalInfo: info => dispatch(updatePersonalInfo(info)),
+    createTechnology: technology => dispatch(createTechnology(technology)),
+    deleteTechnology: id => dispatch(deleteTechnology(id)),
+    createEducation: education => dispatch(createEducation(education)),
+    updateEducation: education => dispatch(updateEducation(education)),
+    deleteEducation: id => dispatch(deleteEducation(id)),
+    createExperience: experience => dispatch(createExperience(experience)),
+    updateExperience: experience => dispatch(updateExperience(experience)),
+    deleteExperience: id => dispatch(deleteExperience(id)),
+    createExperienceBullet: bullet => dispatch(createExperienceBullet(bullet)),
+    updateExperienceBullet: bullet => dispatch(updateExperienceBullet(experbulletience)),
+    deleteExperienceBullet: id => dispatch(deleteExperienceBullet(id)),
+    createProject: project => dispatch(createProject(project)),
+    updateProject: project => dispatch(updateProject(project)),
+    deleteProject: id => dispatch(deleteProject(id)),
+    createProjectBullet: bullet => dispatch(createProjectBullet(bullet)),
+    editProjectBullet: bullet => dispatch(editProjectBullet(bullet)),
+    deleteProjectBullet: id => dispatch(deleteProjectBullet(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

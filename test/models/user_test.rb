@@ -6,6 +6,7 @@
 #  name                 :string           not null
 #  email                :string           not null
 #  phone                :string           not null
+#  personal_site        :string           not null
 #  address              :string           not null
 #  objective            :string           not null
 #  google_token         :string           not null

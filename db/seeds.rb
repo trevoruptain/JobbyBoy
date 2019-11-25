@@ -33,6 +33,7 @@ UserTechnology.reset_pk_sequence
         name: Faker::Name.name,
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.phone_number,
+        personal_site: Faker::Company.logo,
         address: Faker::Address.full_address,
         objective: Faker::TvShows::Community.quotes,
         google_token: 'abc123',

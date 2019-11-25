@@ -1,1 +1,1 @@
-json.extract! user, :id, :name, :email, :phone, :address, :objective
+json.extract! user, :id, :name, :email, :personal_site, :phone, :address, :objective
