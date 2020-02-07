@@ -2,9 +2,9 @@
   "name": "jobby-boy",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/trevoruptain/Jobby-Boy/issues"
   },
-  "homepage": "https://github.com/trevoruptain/Jobby-Boy#readme"
+  "homepage": "https://github.com/trevoruptain/Jobby-Boy#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  }
 }
