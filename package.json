@@ -14,7 +14,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "regex-escape": "^3.4.9",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -41,8 +42,5 @@
   "bugs": {
     "url": "https://github.com/trevoruptain/Jobby-Boy/issues"
   },
-  "homepage": "https://github.com/trevoruptain/Jobby-Boy#readme",
-  "devDependencies": {
-    "webpack-cli": "^3.3.10"
-  }
+  "homepage": "https://github.com/trevoruptain/Jobby-Boy#readme"
 }
