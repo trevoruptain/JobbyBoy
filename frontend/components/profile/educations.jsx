@@ -34,8 +34,8 @@ class Educations extends React.Component {
                 </form>
 
                 <div>
-                    {Object.keys(this.state.educations).map(schoolName => {
-                        const education = this.state.educations[schoolName];
+                    {Object.keys(this.props.educations).map(schoolName => {
+                        const education = this.props.educations[schoolName];
                         return (
                             <div key={schoolName}>
                                 <h3>{education.school} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
@@ -53,10 +53,12 @@ class Educations extends React.Component {
 import { connect } from 'react-redux';
 import { createEducation,
          deleteEducation,
-         updateEducation } from '../../actions/profile/education-actions';
+         updateEducation } from '../../actions/profile/education_actions';
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        educations: state.entities.profile.educations
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({

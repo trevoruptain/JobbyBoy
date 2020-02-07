@@ -3,7 +3,7 @@ import { createUserExperience,
          deleteUserExperience,
          deleteUserExperienceBullet, 
          updateUserExperience, 
-         updateUserExperienceBullet } from '../util/api/experience_api_util';
+         updateUserExperienceBullet } from '../../util/api/experience_api_util';
 
 export const RECEIVE_EXPERIENCE = "RECEIVE_EXPERIENCE";
 export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";

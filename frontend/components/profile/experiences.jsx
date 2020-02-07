@@ -46,8 +46,8 @@ class Experiences extends React.Component {
                 </form>
 
                 <div>
-                    {Object.keys(this.state.experiences).map(companyName => {
-                        const experience = this.state.experiences[companyName];
+                    {Object.keys(this.props.experiences).map(companyName => {
+                        const experience = this.props.experiences[companyName];
                         return (
                             <div key={companyName}>
                                 <h3>{experience.company_name} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
@@ -74,10 +74,12 @@ import { createExperience,
          deleteExperience,
          deleteExperienceBullet,
          updateExperience,
-         updateExperienceBullet } from '../../actions/profile/experience-actions';
+         updateExperienceBullet } from '../../actions/profile/experience_actions';
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        experiences: state.entities.profile.experiences
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({

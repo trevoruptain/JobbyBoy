@@ -1,9 +1,16 @@
 import { RECEIVE_PERSONAL_INFO, RECEIVE_TECHNOLOGIES, RECEIVE_EXPERIENCES,
-         RECEIVE_EDUCATIONS, RECEIVE_PROJECTS } from '../actions/profile-actions';
+         RECEIVE_EDUCATIONS, RECEIVE_PROJECTS } from '../actions/profile/profile-actions';
 
-const ProfileReducer = (state = {}, action) => {
+const defaultState = {
+    personalInfo: {},
+    technologies: {},
+    experiences: {},
+    educations: {},
+    projects: {}
+}
+
+const ProfileReducer = (state = defaultState, action) => {
     Object.freeze(state);
-    // let newState = Object.assign({}, state);
 
     switch (action.type) {
         case RECEIVE_PERSONAL_INFO:

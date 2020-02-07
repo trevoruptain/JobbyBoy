@@ -5,13 +5,12 @@ class PersonalInfo extends React.Component {
         super(props);
 
         this.state = {
-            id: '',
             name: '',
             phone: '',
             email: '',
             personal_site: '',
             address: '',
-            objective: ''
+            objective: '',
         }
 
         this.handleUpdate = this.handleUpdate.bind(this);
@@ -20,7 +19,7 @@ class PersonalInfo extends React.Component {
 
     componentDidMount() {
         this.props.fetchPersonalInfo(1).then(personalInfo => {
-            this.setState(personalInfo.payload);
+            this.setState(personalInfo.payload.personalInfo);
         })
     }
 
@@ -38,18 +37,16 @@ class PersonalInfo extends React.Component {
     }
 
     render() {
-        if (this.props.loading) return <div></div>
-
         return (
             <section id="user-info" className="boxy-boy">
                 <h4>Personal Info</h4>
                 <form onSubmit={this.handleProfileSubmit}>
-                    <input type="text" value={this.state.personalInfo.name} placeholder="Name" onChange={this.handleUpdate('name')} />
-                    <input type="text" value={this.state.personalInfo.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
-                    <input type="text" value={this.state.personalInfo.email} placeholder="Email" onChange={this.handleUpdate('email')} />
-                    <input type="text" value={this.state.personalInfo.personal_site} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
-                    <input type="text" value={this.state.personalInfo.address} placeholder="Address" onChange={this.handleUpdate('address')} />
-                    <textarea value={this.state.personalInfo.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
+                    <input type="text" value={this.state.name} placeholder="Name" onChange={this.handleUpdate('name')} />
+                    <input type="text" value={this.state.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
+                    <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleUpdate('email')} />
+                    <input type="text" value={this.state.personal_site} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
+                    <input type="text" value={this.state.address} placeholder="Address" onChange={this.handleUpdate('address')} />
+                    <textarea value={this.state.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
                     <input type="submit" value="Update" />
                 </form>
             </section>
@@ -59,27 +56,11 @@ class PersonalInfo extends React.Component {
 
 import { connect } from 'react-redux';
 import { fetchPersonalInfo, updatePersonalInfo } from '../../actions/profile/personal-info-actions';
-import profileSelector from '../../util/selectors/profile_selector';
 
 const mapStateToProps = state => {
-    const profile = profileSelector(state, 'personalInfo');
-
-    if (profile.personalInfo) {
-        return {
-            id: profile.personalInfo.id,
-            name: profile.personalInfo.name,
-            phone: profile.personalInfo.phone,
-            email: profile.personalInfo.email,
-            personal_site: profile.personalInfo.personal_site,
-            address: profile.personalInfo.address,
-            objective: profile.personalInfo.objective,
-            loading: false
-        };
-    } else {
-        return {
-            loading: true
-        }
-    }
+    return {
+        personalInfo: state.entities.profile.personalInfo
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({

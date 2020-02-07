@@ -1,3 +1,10 @@
+export const fetchUserPersonalInfo = id => (
+    $.ajax({
+        method: 'GET',
+        url: `users/${id}`,
+    })
+);
+
 export const fetchUserTechnologies = id => (
     $.ajax({
         method: 'GET',

@@ -1,6 +1,6 @@
 import { createUserTechnology,
          deleteUserTechnology,
-         updateUserTechnology } from "../util/api/technology_api_util";
+         updateUserTechnology } from "../../util/api/technology_api_util";
 
 export const RECEIVE_TECHNOLOGY = "RECEIVE_TECHNOLOGY";
 export const DELETE_TECHNOLOGY = "DELETE_TECHNOLOGY";

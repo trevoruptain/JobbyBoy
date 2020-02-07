@@ -2,7 +2,7 @@ import { fetchUserPersonalInfo,
          fetchUserTechnologies, 
          fetchUserExperiences, 
          fetchUserEducations, 
-         fetchUserProjects } from '../util/api/profile_api_util';
+         fetchUserProjects } from '../../util/api/profile_api_util';
 
 export const RECEIVE_PERSONAL_INFO = "RECEIVE_PERSONAL_INFO";
 export const RECEIVE_TECHNOLOGIES = 'RECEIVE_TECHNOLOGIES';

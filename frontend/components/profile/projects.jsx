@@ -34,8 +34,8 @@ class Projects extends React.Component {
                 </form>
 
                 <div>
-                    {Object.keys(this.state.projects).map(projectName => {
-                        const project = this.state.projects[projectName];
+                    {Object.keys(this.props.projects).map(projectName => {
+                        const project = this.props.projects[projectName];
                         return (
                             <div key={projectName}>
                                 <h3>{project.title} <p className='edit'>✏️</p> <p className='trash'>🗑</p></h3>
@@ -61,10 +61,12 @@ import { createProject,
          deleteProject,
          deleteProjectBullet,
          updateProject,
-         updateProjectBullet } from '../../actions/profile/project-actions';
+         updateProjectBullet } from '../../actions/profile/project_actions';
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        projects: state.entities.profile.projects
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({

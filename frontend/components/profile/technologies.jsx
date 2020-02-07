@@ -5,7 +5,6 @@ class Technologies extends React.Component {
         super(props);
 
         this.state = {
-            technologies: this.props.technologies,
             technology: ''
         }
 
@@ -49,8 +48,8 @@ class Technologies extends React.Component {
                 </form>
 
                 <ul>
-                    {Object.keys(this.state.technologies).map(technology => {
-                        const currentTechnology = this.state.technologies[technology].name;
+                    {Object.keys(this.props.technologies).map(technology => {
+                        const currentTechnology = this.props.technologies[technology].name;
                         return (
                             <li key={currentTechnology}>{currentTechnology}<p className='trash' onClick={this.handleDeleteTechnology}>🗑</p></li>
                         );
@@ -64,10 +63,12 @@ class Technologies extends React.Component {
 import { connect } from 'react-redux';
 import { createTechnology,
          deleteTechnology,
-         updateTechnology } from '../../actions/profile/technology-actions';
+         updateTechnology } from '../../actions/profile/technology_actions';
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        technologies: state.entities.profile.technologies
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({

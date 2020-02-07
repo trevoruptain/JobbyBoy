@@ -1,6 +1,6 @@
 import { createUserEducation, 
          deleteUserEducation, 
-         updateUserEducation } from '../util/api/education_api_util';
+         updateUserEducation } from '../../util/api/education_api_util';
 
 export const RECEIVE_EDUCATION = "RECEIVE_EDUCATION";
 export const DELETE_EDUCATION = "DELETE_EDUCATION";

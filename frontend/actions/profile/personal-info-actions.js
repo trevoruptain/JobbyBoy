@@ -1,4 +1,5 @@
-import { fetchUserPersonalInfo, updateUserPersonalInfo } from '../../util/api/personal_info_api_util';
+import { fetchUserPersonalInfo } from '../../util/api/profile_api_util';
+import { updateUserPersonalInfo } from '../../util/api/personal_info_api_util';
 
 export const RECEIVE_PERSONAL_INFO = 'RECEIVE_PERSONAL_INFO';
 

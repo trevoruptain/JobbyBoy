@@ -3,7 +3,7 @@ import { createUserProject,
          deleteUserProject,
          deleteUserProjectBullet, 
          updateUserProject, 
-         updateUserProjectBullet } from '../util/api/project_api_util';
+         updateUserProjectBullet } from '../../util/api/project_api_util';
 
 export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 export const DELETE_PROJECT = "DELETE_PROJECT";
