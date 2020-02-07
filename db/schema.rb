@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_000643) do
   enable_extension "plpgsql"
 
   create_table "educations", force: :cascade do |t|
-    t.string "school"
-    t.integer "year"
+    t.string "school", null: false
+    t.integer "year", null: false
+    t.string "concentration", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,15 +49,16 @@ ActiveRecord::Schema.define(version: 2019_11_25_000643) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
+    t.string "description", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "resume_experiences", force: :cascade do |t|
-    t.integer "resume_id"
-    t.integer "experience_id"
+    t.integer "resume_id", null: false
+    t.integer "experience_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["experience_id"], name: "index_resume_experiences_on_experience_id"
@@ -93,8 +95,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_000643) do
   end
 
   create_table "user_technologies", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "technology_id"
+    t.integer "user_id", null: false
+    t.integer "technology_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["technology_id"], name: "index_user_technologies_on_technology_id"
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_000643) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "phone", null: false
+    t.string "personal_site", null: false
     t.string "address", null: false
     t.string "objective", null: false
     t.string "google_token", null: false

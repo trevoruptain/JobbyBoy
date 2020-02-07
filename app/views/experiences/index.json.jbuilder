@@ -1,5 +1,7 @@
 json.experiences do
     @experiences.each do |experience|
-        json.partial! "experiencess/experiences", experience: experience
+        json.set! experience.company_name do
+            json.partial! "experiences/experience", experience: experience
+        end
     end
 end

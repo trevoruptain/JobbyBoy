@@ -10,6 +10,7 @@ require 'faker'
 
 User.delete_all
 Resume.delete_all
+Education.delete_all
 Technology.delete_all
 Project.delete_all
 ProjectBullet.delete_all
@@ -19,6 +20,7 @@ UserTechnology.delete_all
 
 User.reset_pk_sequence
 Resume.reset_pk_sequence
+Education.reset_pk_sequence
 Technology.reset_pk_sequence
 Project.reset_pk_sequence
 ProjectBullet.reset_pk_sequence
@@ -31,6 +33,7 @@ UserTechnology.reset_pk_sequence
         name: Faker::Name.name,
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.phone_number,
+        personal_site: Faker::Company.logo,
         address: Faker::Address.full_address,
         objective: Faker::TvShows::Community.quotes,
         google_token: 'abc123',
@@ -55,6 +58,18 @@ end
     )
 end
 
+10.times do |i|
+    user_id = (i % 2) + 1
+    rand_year = rand(1991..2019)
+
+    Education.create!(
+        school: Faker::Currency.name,
+        year: rand_year,
+        concentration: Faker::ElectricalComponents.active,
+        user_id: user_id
+    )
+end
+
 100.times do |i|
     Technology.create!(
         name: Faker::Science.element
@@ -64,6 +79,7 @@ end
 20.times do
     Project.create!(
         title: Faker::Military.marines_rank,
+        description: Faker::TvShows::StrangerThings.quote,
         user_id: rand(2) + 1
     )
 end
@@ -89,7 +105,7 @@ end
 100.times do 
     ExperienceBullet.create!(
         experience_id: rand(20) + 1,
-        body: Faker::TvShows::MichaelScott
+        body: Faker::TvShows::MichaelScott.quote
     )
 end
 

@@ -6,6 +6,7 @@
 #  name                 :string           not null
 #  email                :string           not null
 #  phone                :string           not null
+#  personal_site        :string           not null
 #  address              :string           not null
 #  objective            :string           not null
 #  google_token         :string           not null
@@ -15,7 +16,7 @@
 #
 
 class User < ApplicationRecord
-    validates :name, :email, :phone, :address, :objective, presence: true
+    validates :name, :email, :phone, :personal_site, :address, :objective, presence: true
     validates :email, uniqueness: true
     # validates :password, length: { minimum: 6 }, allow_nil: true
 
@@ -24,6 +25,7 @@ class User < ApplicationRecord
     has_many :resumes, dependent: :destroy
     has_many :projects, dependent: :destroy
     has_many :experiences, dependent: :destroy
+    has_many :educations, dependent: :destroy
     has_many :technologies, through: :user_technologies
     has_many :experience_bullets, through: :experiences
     has_many :project_bullets, through: :projects
