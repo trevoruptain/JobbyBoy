@@ -1,10 +1,3 @@
-export const fetchUserPersonalInfo = id => (
-    $.ajax({
-        method: 'GET',
-        url: `users/${id}`,
-    })
-);
-
 export const fetchUserTechnologies = id => (
     $.ajax({
         method: 'GET',
@@ -32,4 +25,3 @@ export const fetchUserProjects = id => (
         url: `users/${id}/projects`,
     })
 );
-

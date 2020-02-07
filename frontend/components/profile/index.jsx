@@ -1,18 +1,12 @@
 import React from 'react';
 
+import PersonalInfo from './personal_info';
+
 class Profile extends React.Component {
     constructor(props) {
         super(props);
          
         this.state = {
-            personalInfo: {
-                name: '',
-                phone: '',
-                email: '',
-                personalSite: '',
-                address: '',
-                objective: ''
-            },
             technology: '',
             technologies: {},
             experience: '',
@@ -25,13 +19,12 @@ class Profile extends React.Component {
         
 
         this.handleUpdate = this.handleUpdate.bind(this);
-        this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
         this.handleTechnologiesSubmit = this.handleTechnologiesSubmit.bind(this);
         this.handleDeleteTechnology = this.handleDeleteTechnology.bind(this);
     }
 
     componentDidMount() {
-        Promise.all([this.props.fetchPersonalInfo(1), this.props.fetchTechnologies(1),
+        Promise.all([this.props.fetchTechnologies(1),
                      this.props.fetchExperiences(1), this.props.fetchEducations(1),
                      this.props.fetchProjects(1)])
                 .then(values => {
@@ -53,10 +46,6 @@ class Profile extends React.Component {
             e.preventDefault();
             this.setState({ [name]: e.target.value })
         };
-    }
-
-    handleProfileSubmit(e) {
-        e.preventDefault();
     }
 
     handleTechnologiesSubmit(e) {
@@ -96,18 +85,7 @@ class Profile extends React.Component {
     render() {
         return (
             <div id="main" className="column-1 profile">
-                <section id="user-info" className="boxy-boy">
-                    <h4>Personal Info</h4>
-                    <form onSubmit={this.handleProfileSubmit}>
-                        <input type="text" value={this.state.personalInfo.name} placeholder="Name" onChange={this.handleUpdate('name')} />
-                        <input type="text" value={this.state.personalInfo.phone} placeholder="Phone" onChange={this.handleUpdate('phone')} />
-                        <input type="text" value={this.state.personalInfo.email} placeholder="Email" onChange={this.handleUpdate('email')} />
-                        <input type="text" value={this.state.personalInfo.personal_site} placeholder="Personal Site" onChange={this.handleUpdate('personalSite')} />
-                        <input type="text" value={this.state.personalInfo.address} placeholder="Address" onChange={this.handleUpdate('address')} />
-                        <textarea value={this.state.personalInfo.objective} placeholder="Objective" onChange={this.handleUpdate('objective')} />
-                        <input type="submit" value="Update" />
-                    </form>
-                </section>
+                {/* <PersonalInfo /> */}
                 <section id="user-technologies" className="boxy-boy">
                     <h4>Technologies</h4>
                     <form onSubmit={this.handleTechnologiesSubmit}>
@@ -202,14 +180,14 @@ class Profile extends React.Component {
 
 import { connect } from 'react-redux';
 import { finishLoading } from '../../actions/loading-actions';
-import { fetchPersonalInfo, fetchTechnologies, fetchExperiences,
+import { fetchTechnologies, fetchExperiences,
          fetchEducations, fetchProjects, updatePersonalInfo, 
          createTechnology, deleteTechnology, createEducation, 
          updateEducation, deleteEducation, createExperience, 
          updateExperience, deleteExperience, createExperienceBullet, 
          updateExperienceBullet, deleteExperienceBullet, createProject, 
          updateProject, deleteProject, createProjectBullet, 
-         editProjectBullet, deleteProjectBullet 
+         updateProjectBullet, deleteProjectBullet 
         } from '../../actions/profile-actions';
 
 const mapStateToProps = state => {
@@ -224,22 +202,20 @@ const mapStateToProps = state => {
     const profile = state.entities.profile ? state.entities.profile : dummyProfile;
 
     return { 
-        personalInfo: profile.personalInfo ? profile.personalInfo.objective : {},
-        technologies: profile.technologies ? profile.technologies : {},
-        experiences: profile.experiences ? profile.experiences : {},
-        projects: profile.projects ? profile.projects : {},
-        educations: profile.educations ? profile.educations : {}
+        personalInfo: profile.personalInfo,
+        technologies: profile.technologies,
+        experiences: profile.experiences,
+        projects: profile.projects,
+        educations: profile.educations
     };
 };
 
 const mapDispatchToProps = (dispatch) => ({
     finishLoading: () => dispatch(finishLoading()),
-    fetchPersonalInfo: id => dispatch(fetchPersonalInfo(id)),
     fetchTechnologies: id => dispatch(fetchTechnologies(id)),
     fetchExperiences: id => dispatch(fetchExperiences(id)),
     fetchEducations: id => dispatch(fetchEducations(id)),
     fetchProjects: id => dispatch(fetchProjects(id)),
-    updatePersonalInfo: info => dispatch(updatePersonalInfo(info)),
     createTechnology: technology => dispatch(createTechnology(technology)),
     deleteTechnology: id => dispatch(deleteTechnology(id)),
     createEducation: education => dispatch(createEducation(education)),
@@ -255,7 +231,7 @@ const mapDispatchToProps = (dispatch) => ({
     updateProject: project => dispatch(updateProject(project)),
     deleteProject: id => dispatch(deleteProject(id)),
     createProjectBullet: bullet => dispatch(createProjectBullet(bullet)),
-    editProjectBullet: bullet => dispatch(editProjectBullet(bullet)),
+    updateProjectBullet: bullet => dispatch(updateProjectBullet(bullet)),
     deleteProjectBullet: id => dispatch(deleteProjectBullet(id))
 });
 

@@ -5,20 +5,9 @@ class Technologies extends React.Component {
         super(props);
 
         this.state = {
-            technologies: {}
+            technologies: this.props.technologies
         }
     }
 }
 
-import { connect } from 'react-redux';
-import { } from '../../actions/profile/technologies-actions';
-
-const mapStateToProps = state => {
-    return {};
-};
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Technologies);
+export default Technologies;

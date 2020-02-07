@@ -1,18 +1,18 @@
 import { fetchUserPersonalInfo, 
          fetchUserTechnologies, 
-         fetchUserExperiences,
+         fetchUserExperiences, 
          fetchUserEducations, 
          fetchUserProjects } from '../util/api/profile_api_util';
 
-export const RECEIVE_PERSONAL_INFO = 'RECEIVE_PERSONAL_INFO';
+export const RECEIVE_PERSONAL_INFO = "RECEIVE_PERSONAL_INFO";
 export const RECEIVE_TECHNOLOGIES = 'RECEIVE_TECHNOLOGIES';
 export const RECEIVE_EXPERIENCES = 'RECEIVE_EXPERIENCES';
 export const RECEIVE_EDUCATIONS = 'RECEIVE_EDUCATIONS';
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
 
-export const receivePersonalInfo = (info) => ({
-    type: RECEIVE_PERSONAL_INFO,
-    payload: { personalInfo: info }
+export const receivePersonalInfo = personalInfo => ({
+  type: RECEIVE_PERSONAL_INFO,
+  payload: personalInfo
 });
 
 export const receiveTechnologies = (technologies) => ({
@@ -36,10 +36,10 @@ export const receiveProjects = (projects) => ({
 });
 
 export const fetchPersonalInfo = id => dispatch => {
-    return fetchUserPersonalInfo(id).then(personalInfo => (
-        dispatch(receivePersonalInfo(personalInfo))
-    ));
-}
+  return fetchUserPersonalInfo(id).then(personalInfo =>
+    dispatch(receivePersonalInfo(personalInfo))
+  );
+};
 
 export const fetchTechnologies = id => dispatch => {
     return fetchUserTechnologies(id).then(technologies => (
