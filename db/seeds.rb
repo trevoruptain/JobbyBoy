@@ -18,15 +18,15 @@ Experience.delete_all
 ExperienceBullet.delete_all
 UserTechnology.delete_all
 
-User.reset_pk_sequence
-Resume.reset_pk_sequence
-Education.reset_pk_sequence
-Technology.reset_pk_sequence
-Project.reset_pk_sequence
-ProjectBullet.reset_pk_sequence
-Experience.reset_pk_sequence
-ExperienceBullet.reset_pk_sequence
-UserTechnology.reset_pk_sequence
+# User.reset_pk_sequence
+# Resume.reset_pk_sequence
+# Education.reset_pk_sequence
+# Technology.reset_pk_sequence
+# Project.reset_pk_sequence
+# ProjectBullet.reset_pk_sequence
+# Experience.reset_pk_sequence
+# ExperienceBullet.reset_pk_sequence
+# UserTechnology.reset_pk_sequence
 
 2.times do
     User.create!(
