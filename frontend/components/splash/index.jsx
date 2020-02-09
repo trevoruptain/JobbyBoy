@@ -61,9 +61,9 @@ class Splash extends React.Component {
                     <h2>JobbyBoy makes it hella 🔥 easy 👏</h2>
                 </section>
                 <section id="making-a-point">
-                    <div className="point"><img src="http://localhost:3000/resume-icon.png" /><p>Design a modular resume with your skills, experience, and education 🎓.</p></div>
-                    <div className="point"><img src="http://localhost:3000/swatch-icon.png" /><p>Customize resumes with your choice of colors 🌈, fonts, and templates.</p></div>
-                    <div className="point"><img src="http://localhost:3000/api-icon.png" /><p>Generate a unique resume for each job 💼 featuring your most relevant experience.</p></div>
+                    <div className="point"><img src={window.icon1} /><p>Design a modular resume with your skills, experience, and education 🎓.</p></div>
+                    <div className="point"><img src={window.icon2} /><p>Customize resumes with your choice of colors 🌈, fonts, and templates.</p></div>
+                    <div className="point"><img src={window.icon3} /><p>Generate a unique resume for each job 💼 featuring your most relevant experience.</p></div>
                 </section>
                 <section id="example">
                     <h3>It's free real estate!</h3>
